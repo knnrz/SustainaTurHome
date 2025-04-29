@@ -1,0 +1,342 @@
+/* === RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth; /* Scroll Suave */
+}
+
+/* === VARIÁVEIS === */
+:root {
+  --primary-color: #0d0d0d;
+  --secondary-color: #1a1a1a;
+  --accent-color: #00c896;
+  --text-color: #f0f0f0;
+  --link-hover: #00ffc3;
+}
+
+/* === GERAL === */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* === HEADER === */
+header {
+  background: var(--secondary-color);
+  padding: 1rem 0;
+}
+
+header h1 a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1.8rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: var(--link-hover);
+}
+
+/* === HERO SECTION === */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #00c896 0%, #007f5f 100%);
+  color: var(--primary-color);
+}
+
+.hero .btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 2rem;
+  background: var(--primary-color);
+  color: var(--accent-color);
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.hero .btn:hover {
+  background: var(--accent-color);
+  color: var(--primary-color);
+}
+
+/* === SOBRE SECTION === */
+.sobre {
+  padding: 4rem 2rem;
+  background: var(--secondary-color);
+}
+
+/* === BLOG PAGE === */
+.blog-page {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.posts {
+  flex: 3;
+}
+
+.posts article {
+  background: var(--secondary-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.posts article h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.posts article p {
+  font-size: 0.95rem;
+}
+
+.btn-small {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  background: var(--accent-color);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn-small:hover {
+  background: var(--link-hover);
+  color: var(--primary-color);
+}
+
+/* === SIDEBAR (ASIDE) === */
+.sidebar {
+  flex: 1;
+  background: var(--secondary-color);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.sidebar h4 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin-bottom: 0.8rem;
+}
+
+/* === CONTATO PAGE === */
+.contato-page {
+  padding: 4rem 2rem;
+}
+
+.formulario {
+  max-width: 600px;
+  margin: auto;
+  background: var(--secondary-color);
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.formulario h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 1rem;
+  background: transparent;
+  border: 2px solid var(--accent-color);
+  border-radius: 5px;
+  color: var(--text-color);
+  outline: none;
+  font-size: 1rem;
+}
+
+.input-group label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: var(--text-color);
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+/* Animação label flutuante */
+.input-group input:focus + label,
+.input-group input:valid + label,
+.input-group textarea:focus + label,
+.input-group textarea:valid + label {
+  top: -0.8rem;
+  left: 0.8rem;
+  font-size: 0.8rem;
+  background: var(--secondary-color);
+  padding: 0 0.4rem;
+}
+
+/* Botão Formulário */
+.formulario .btn {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background: var(--accent-color);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.formulario .btn:hover {
+  background: var(--link-hover);
+  transform: translateY(-2px);
+}
+
+/* === FOOTER === */
+footer {
+  background: var(--secondary-color);
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* === BOTÃO VOLTAR AO TOPO === */
+#back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 0.8rem;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: var(--primary-color);
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: none;
+  z-index: 1000;
+  transition: background 0.3s, transform 0.3s;
+}
+
+#back-to-top:hover {
+  background: var(--link-hover);
+  transform: scale(1.1);
+}
+
+/* === RESPONSIVO === */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .blog-page {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+}
+.blog-post {
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.blog-post article {
+  background: var(--secondary-color);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 255, 200, 0.1);
+}
+
+.blog-post article h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent-color);
+}
+
+.blog-post article h3 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.blog-post article p,
+.blog-post article ul,
+.blog-post article blockquote {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.blog-post article ul {
+  list-style: inside disc;
+  padding-left: 1rem;
+}
+
+.blog-post article blockquote {
+  border-left: 4px solid var(--accent-color);
+  padding-left: 1rem;
+  color: #ccc;
+  font-style: italic;
+}
+
+aside.sidebar {
+  background: var(--secondary-color);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+a {
+  color: #00ff88;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #00ffaa;
+  text-decoration: underline; /* sublinhar só no hover */
+}
