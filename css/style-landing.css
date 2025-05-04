@@ -1,0 +1,141 @@
+:root {
+  --primary-color: #0a3d62;
+  --accent-color: #3fc1c9;
+  --text-color: #ffffff;
+  --background-color: #1e272e;
+  --btn-hover: #2c2c54;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+.hero-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-image {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.benefits {
+  padding: 4rem 0;
+  background-color: #2f3640;
+}
+
+.benefits h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.benefits ul {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.benefits li {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.benefits li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+}
+
+.download {
+  padding: 4rem 0;
+  background-color: #1e272e;
+  text-align: center;
+}
+
+.download h2 {
+  margin-bottom: 1rem;
+}
+
+.download p {
+  margin-bottom: 2rem;
+}
+
+.download form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.download input {
+  padding: 0.8rem;
+  width: 100%;
+  max-width: 400px;
+  border: none;
+  border-radius: 5px;
+}
+
+.download .btn {
+  padding: 0.8rem 2rem;
+  background-color: var(--accent-color);
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.download .btn:hover {
+  background-color: var(--btn-hover);
+  color: #fff;
+}
+
+.footer {
+  padding: 2rem 0;
+  text-align: center;
+  background-color: #0a3d62;
+}
