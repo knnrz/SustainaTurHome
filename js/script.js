@@ -26,3 +26,22 @@
       observer.observe(section);
     });
   
+
+
+  const banner = document.getElementById('cookie-banner');
+  const btn = document.getElementById('accept-cookies');
+
+  if (!localStorage.getItem('cookiesAccepted')) {
+    banner.style.display = 'flex';
+  }
+
+  btn.addEventListener('click', () => {
+    localStorage.setItem('cookiesAccepted', 'yes');
+    banner.style.display = 'none';
+    initAnalyticsTool(); // aqui entra o script do Matomo ou Plausible
+  });
+
+  // Se já aceitou, ativa direto
+  if (localStorage.getItem('cookiesAccepted')) {
+    initAnalyticsTool();
+  }

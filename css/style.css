@@ -340,3 +340,90 @@ a:hover {
   color: #00ffaa;
   text-decoration: underline; /* sublinhar só no hover */
 }
+
+.header-termos {
+  background: linear-gradient(135deg, #0a3d62, #3fc1c9);
+  color: #fff;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.termos {
+  background-color: #f8f9fa;
+  color: #2f3640;
+  padding: 4rem 0;
+}
+
+.termo-section {
+  margin-bottom: 3rem;
+}
+
+.termo-section h2 {
+  color: #0a3d62;
+  margin-bottom: 1rem;
+}
+
+.termo-section p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.contato-termo {
+  margin-top: 2rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.footer {
+  background-color: #0a3d62;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+.cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: #fffef0;
+  border: 1px solid #ddd;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  padding: 1rem 2rem;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  animation: fadeIn 0.6s ease-in-out;
+  font-size: 0.9rem;
+  border-radius: 10px;
+}
+
+.cookie-banner p {
+  margin: 0;
+  color: #333;
+}
+
+.cookie-banner a {
+  color: #007b88;
+  text-decoration: underline;
+}
+
+.cookie-banner button {
+  background: #007b88;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  align-self: flex-end;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.cookie-banner button:hover {
+  background: #005f66;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
