@@ -1,175 +1,90 @@
-:root {
-  --primary-color: #0a3d62;
-  --accent-color: #3fc1c9;
-  --text-color: #ffffff;
-  --background-color: #1e272e;
-  --btn-hover: #2c2c54;
-}
-
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  font-family: "Segoe UI", sans-serif;
+  background: #fdfdfb;
+  color: #333;
 }
 
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 0;
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-}
-
-.hero-content {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 2rem;
-}
-
-.hero-text {
-  flex: 1;
-}
-
-.hero-text h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.hero-text p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.hero-image {
-  flex: 1;
-  text-align: center;
-}
-
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.benefits {
-  padding: 4rem 0;
-  background-color: #2f3640;
-}
-
-.benefits h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.benefits ul {
-  list-style: none;
-  padding: 0;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.benefits li {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
-  position: relative;
-}
-
-.benefits li::before {
-  content: "✔";
-  position: absolute;
-  left: 0;
-  color: var(--accent-color);
-}
-
-.download {
-  padding: 4rem 0;
-  background-color: #1e272e;
-  text-align: center;
-}
-
-.download h2 {
-  margin-bottom: 1rem;
-}
-
-.download p {
-  margin-bottom: 2rem;
-}
-
-.download form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.download input {
-  padding: 0.8rem;
-  width: 100%;
-  max-width: 400px;
-  border: none;
-  border-radius: 5px;
-}
-
-.download .btn {
-  padding: 0.8rem 2rem;
-  background-color: var(--accent-color);
-  color: #000;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.download .btn:hover {
-  background-color: var(--btn-hover);
-  color: #fff;
-}
-
-.footer {
-  padding: 2rem 0;
-  text-align: center;
-  background-color: #0a3d62;
-}
-.catalogo-container {
+header {
   padding: 2rem;
   text-align: center;
+  background: linear-gradient(120deg, #009688, #4db6ac);
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.card-viagem {
-  background: #fff;
-  border-radius: 16px;
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
   padding: 1rem;
-  margin: 1rem auto;
-  max-width: 400px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.card-viagem:hover {
-  transform: scale(1.03);
+.controls input,
+.controls select,
+.controls button {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
 }
 
-.card-viagem img {
-  width: 100%;
+.controls button {
+  background-color: #009688;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.controls button:hover {
+  background-color: #00796b;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.card {
+  background: white;
+  border: 2px solid #cce7e3;
   border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.6s ease forwards;
 }
 
-.fade-in {
-  animation: fadeIn 1s ease-in-out forwards;
-  opacity: 0;
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+  border-color: #26a69a;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #00796b;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #eceff1;
+  font-size: 0.9rem;
 }
 
 @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }

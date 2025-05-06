@@ -1,43 +1,42 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const viagens = [
-    {
-      titulo: "Chapada dos Veadeiros",
-      descricao: "Natureza, cachoeiras e misticismo em um só lugar.",
-      imagem: "img/chapada.jpg"
-    },
-    {
-      titulo: "Serra da Canastra",
-      descricao: "A terra do queijo mais famoso do Brasil e paisagens incríveis.",
-      imagem: "img/canastra.jpg"
-    },
-    {
-      titulo: "Península de Maraú",
-      descricao: "Praias desertas, águas claras e estilo de vida slow travel.",
-      imagem: "img/marau.jpg"
-    }
-  ];
+const viagens = [
+  { nome: "Chapada dos Veadeiros", categoria: "natureza", descricao: "Imersão em cachoeiras e trilhas energéticas." },
+  { nome: "São João no Nordeste", categoria: "cultural", descricao: "Celebre a cultura nordestina com muito forró!" },
+  { nome: "Sabores de Minas", categoria: "gastronomia", descricao: "Uma rota cheia de queijos, doces e afeto." },
+  { nome: "Pantanal Selvagem", categoria: "natureza", descricao: "Explore a fauna e flora pantaneira." },
+  { nome: "Raízes Afro em Salvador", categoria: "cultural", descricao: "Uma viagem profunda nas tradições afro-brasileiras." },
+];
 
-  const app = document.getElementById("app");
-  const container = document.createElement("div");
-  container.className = "catalogo-container fade-in";
+const catalogo = document.getElementById("catalogo");
+const buscaInput = document.getElementById("busca");
+const categoriaSelect = document.getElementById("categoria");
+const ordenarBtn = document.getElementById("ordenar");
 
-  const titulo = document.createElement("h1");
-  titulo.textContent = "Escolha sua próxima viagem consciente";
-  container.appendChild(titulo);
+let ordenado = false;
 
-  viagens.forEach(viagem => {
-    const card = document.createElement("div");
-    card.className = "card-viagem";
+function renderizarViagens(filtro = "") {
+  let filtradas = viagens
+    .filter(v => v.nome.toLowerCase().includes(filtro.toLowerCase()))
+    .filter(v => !categoriaSelect.value || v.categoria === categoriaSelect.value);
 
-    card.innerHTML = `
-      <img src="${viagem.imagem}" alt="${viagem.titulo}" />
-      <h2>${viagem.titulo}</h2>
-      <p>${viagem.descricao}</p>
-      <button class="btn">Ver Detalhes</button>
-    `;
+  if (ordenado) {
+    filtradas.sort((a, b) => a.nome.localeCompare(b.nome));
+  }
 
-    container.appendChild(card);
-  });
+  catalogo.innerHTML = filtradas.map(v => `
+    <div class="card">
+      <h3>${v.nome}</h3>
+      <p>${v.descricao}</p>
+      <small><strong>Categoria:</strong> ${v.categoria}</small>
+    </div>
+  `).join("");
+}
 
-  app.appendChild(container);
+buscaInput.addEventListener("input", () => renderizarViagens(buscaInput.value));
+categoriaSelect.addEventListener("change", () => renderizarViagens(buscaInput.value));
+ordenarBtn.addEventListener("click", () => {
+  ordenado = !ordenado;
+  ordenarBtn.textContent = ordenado ? "Desordenar" : "Ordenar A-Z";
+  renderizarViagens(buscaInput.value);
 });
+
+renderizarViagens();

@@ -4,13 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Catálogo de Viagens | Sustaina Trip</title>
-  <link rel="stylesheet" href="css/style-landing.css" />
-  <script defer src="js/catalogo.js"></script>
+  <link rel="stylesheet" href="css/catalogo.css" />
+  <script src="js/catalogo.js" defer></script>
 </head>
 <body>
-  <noscript>
-    <p style="color: red; text-align: center;">Este site precisa de JavaScript para funcionar corretamente.</p>
-  </noscript>
-  <div id="app"></div>
+  <header>
+    <h1>Catálogo de Viagens</h1>
+    <p>Explore viagens conscientes e cheias de significado com a Sustaina Trip.</p>
+  </header>
+
+  <section class="controls">
+    <input type="text" id="busca" placeholder="Buscar por nome..." />
+    <select id="categoria">
+      <option value="">Todas as categorias</option>
+      <option value="natureza">Natureza</option>
+      <option value="cultural">Cultural</option>
+      <option value="gastronomia">Gastronomia</option>
+    </select>
+    <button id="ordenar">Ordenar A-Z</button>
+  </section>
+
+  <main id="catalogo" class="grid"></main>
+
+  <footer>
+    <p>&copy; 2025 Sustaina Trip. Todos os direitos reservados.</p>
+  </footer>
 </body>
 </html>
