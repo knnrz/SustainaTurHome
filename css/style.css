@@ -18,7 +18,7 @@
 /* === ESTILO PARA O BLOG === */
 body.blog {
   --primary-color: #1a1a1a;
-  --secondary-color: ##00bfff;
+  --secondary-color: #00bfff;
   --accent-color: #3fc1c9;
   --text-color: #ffffff;
   --link-hover: #00c896;
@@ -424,7 +424,7 @@ section.sobre, .termos {
 
 /* === SIDEBAR === */
 .sidebar, aside.sidebar {
-  flex: 1;
+  grid: 1;
   background: var(--secondary-color);
   padding: 1.5rem;
   border-radius: 8px;
@@ -576,3 +576,71 @@ a:hover {
     width: 100%;
   }
 }
+
+.blog-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.posts {
+  flex: 3;
+}
+
+.sidebar {
+  flex: 1;
+  background: var(--secondary-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 255, 200, 0.1);
+  position: sticky;
+  top: 100px; /* Fica fixa quando rola */
+}
+
+
+.layout-com-sidebar {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.conteudo-principal {
+  flex: 3;
+}
+
+.sidebar {
+  flex: 1;
+  background: var(--secondary-color);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 255, 200, 0.08);
+  position: sticky;
+  top: 80px;
+  height: fit-content;
+}
+
+.sidebar h4 {
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 1rem;
+}
+
+.sidebar ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+  color: var(--link-hover);
+}
+
