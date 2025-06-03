@@ -6,10 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Conheça a Sustaina Trip Turismo: uma agência de turismo consciente, feita com propósito e autenticidade." />
   <meta name="google-adsense-account" content="ca-pub-7270178671003990" />
+
+
   <title>Sustaina Trip Turismo</title>
 
   <!-- Estilos principais -->
   <link rel="stylesheet" href="css/style.css" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- Scripts -->
   <script defer src="js/script.js"></script> 
@@ -22,133 +26,249 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.ico/apple-icon-180x180.png" />
   <link rel="manifest" href="assets/favicon.ico/manifest.json" />
   <meta name="theme-color" content="#ffffff" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-900 text-white">  <!-- Header -->  <header class="fixed top-0 left-0 w-full z-50 p-4 flex justify-between items-center bg-black bg-opacity-60 backdrop-blur-sm">
+    <h1 class="text-lg font-semibold tracking-widest">Sustaina Trip</h1>
+    <div class="hamburger cursor-pointer" onclick="toggleMenu(this)">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Menu de navegação -->
+<nav id="mobile-menu" class="hidden fixed top-16 left-0 w-full bg-black bg-opacity-80 backdrop-blur-sm z-40 flex flex-col items-center space-y-4 py-6 text-lg">
+  <a href="#inicio" class="hover:text-yellow-400">Início</a>
+  <a href="#roteiros" class="hover:text-yellow-400">Roteiros</a>
+  <a href="#blog" class="hover:text-yellow-400">Blog</a>
+  <a href="#diferenciais" class="hover:text-yellow-400">Diferenciais</a>
+  <a href="#cta" class="hover:text-yellow-400">Contato</a>
+  <a href="#recomendo" class="hover:text-yellow-400">Recomendo</a>
+</nav>
+  </header>
+<!-- Espaço para compensar header fixo -->
+<div class="h-20"></div>
+
   <main>
-    <section class="layout-com-sidebar container">
-      <div class="conteudo-principal">
-        <section id="inicio" class="hero">
-          <div class="container">
-            <h2>Turismo consciente começa aqui</h2>
-            <p>Viagens com propósito, sem glamour forçado. Vem viver experiências reais e transformadoras com a gente.</p>
-            <a href="#sobre" class="btn">Descubra Mais</a>
-          </div>
-        </section>
+<!--Hero-->
+<section id="inicio" class="hero">
+  <div class="hero-content">
+    <h2>Viaje com Propósito</h2>
+    <p>Descubra destinos sustentáveis e viva experiências únicas com a SustainaTrip.</p>
+    <a href="#roteiros" class="btn">Explorar Destinos</a>
+  </div>
+</section>
+<!--Serviços-->    
+<section id="roteiros" class="servicos">    
+  <h2>Nossos Roteiros</h2>    
+  <p>Selecionamos destinos incríveis que unem natureza, cultura e sustentabilidade.</p>    
+    
+  <div class="cards-container">    
+    <div class="card">    
+      <img src="imagens/praia.jpg" alt="Praia paradisíaca">    
+      <h3>Ecoturismo</h3>    
+      <p>Explore trilhas, cachoeiras e reservas naturais com responsabilidade ambiental.</p>    
+    </div>    
+    
+    <div class="card">    
+      <img src="imagens/cultura.jpg" alt="Apresentação cultural">    
+      <h3>Turismo Cultural</h3>    
+      <p>Conecte-se com comunidades locais e mergulhe em tradições autênticas.</p>    
+    </div>    
+    
+    <div class="card">    
+      <img src="imagens/pacote.jpg" alt="Roteiro personalizado">    
+      <h3>Roteiros Personalizados</h3>    
+      <p>Criamos experiências sob medida de acordo com seu estilo e propósito de viagem.</p>    
+    </div>    
+  </div>    
+</section>    
 
-        <section id="sobre" class="sobre">
-          <h2>Quem tá por trás disso?</h2>
-          <p>Uma pessoa real, apaixonada por viagens com sentido, tecnologia e reconexão.</p>
-        </section>
+<!-- ARG Sustaina Trip -->
+<section id="arg-sustaina" style="background-color: #f0fff4; padding: 40px 20px; text-align: center; border-top: 2px solid #48bb78;">
+  <h2 style="color: #2f855a; font-size: 2em;">🌿 ARG Imersivo: Ilha dos Segredos</h2>
+  <p style="max-width: 800px; margin: auto; color: #2d3748; font-size: 1.1em;">
+    Participe de uma experiência de realidade alternada única, onde turismo sustentável encontra narrativa interativa. 
+    Descubra mensagens ocultas na paisagem, enigmas sensoriais e conexões profundas com a natureza em um jogo narrativo feito para quem busca mais do que um simples passeio.
+  </p>
+  <p style="margin-top: 20px; font-weight: bold; color: #38a169;">🚩 Exclusivo para viajantes da Sustaina Trip Turismo</p>
+</section>
 
-        <section id="blog" class="blog-section">
-          <div class="container">
+<!--Blog CTA-->
+        <section id="blog" class="cta">
+          <div class="cta-content">
             <h2>Nosso Conteúdo</h2>
             <p>O <strong>blog da Sustaina Trip</strong> é pra quem viaja além do mapa.</p>
-            <a href="https://blog.sustainatrip.tur.br" class="btn btn-cta">Ler agora e embarcar</a>
+            <a href="blog.html" class="btn btn-cta">Ler agora e embarcar</a>
           </div>
         </section>
 
-        <section id="servicos" class="servicos-section">
-          <div class="servicos-grid">
-            <article class="servico-card">
-              <img src="img/lagoinha.jpg" alt="Trilha Lagoinha do Leste">
-              <h3>Trilha Lagoinha do Leste</h3>
-              <p>Uma caminhada guiada por paisagens incríveis.</p>
-              <a href="#" class="btn-small">Saiba mais</a>
-            </article>
-            <article class="servico-card">
-              <img src="img/projeto-tamar.jpg" alt="Projeto Tamar">
-              <h3>Projeto Tamar</h3>
-              <p>Preservação de tartarugas com atividades educativas.</p>
-              <a href="#" class="btn-small">Saiba mais</a>
-            </article>
-            <article class="servico-card">
-              <img src="img/parque-rio-vermelho.jpg" alt="Parque Estadual do Rio Vermelho">
-              <h3>Parque do Rio Vermelho</h3>
-              <p>Trilhas e conservação de animais resgatados.</p>
-              <a href="#" class="btn-small">Saiba mais</a>
-            </article>
-          </div>
-        </section>
+<section id="diferenciais" class="diferenciais">
+  <h2>Por que escolher a SustainaTrip?</h2>
+  <p>Mais do que viagens, criamos conexões com propósito — e com uma pitada de mistério.</p>
 
-        <section id="ebook" class="sobre">
-          <h2>Manual de Viagem Interior</h2>
-          <p>Reflexões e práticas para quem quer se encontrar viajando.</p>
-          <a href="landing-ebook.html" class="btn-small">Baixar gratuitamente</a>
-          <p>Ou <a href="#">apoie o projeto</a> e receba um mimo!</p>
-        </section>
+  <div class="beneficios">
+    <div class="beneficio">
+      <i class="fas fa-leaf"></i>
+      <h3>Sustentabilidade Real</h3>
+      <p>Todos os roteiros seguem práticas de turismo responsável, regenerativo e com impacto direto nas comunidades locais.</p>
+    </div>
 
-        <section class="image-gallery">
-          <h2>Momentos que Inspiram</h2>
-          <div class="grid-gallery">
-            <img src="img1.jpg" alt="Eco lodge na selva" />
-            <img src="img2.jpg" alt="Trilha em floresta" />
-            <img src="img3.jpg" alt="Família viajando" />
-            <img src="img4.jpg" alt="Montanhas naturais" />
-          </div>
-        </section>
+    <div class="beneficio">
+      <i class="fas fa-users"></i>
+      <h3>Experiência Autêntica</h3>
+      <p>Você não será só turista: será parte ativa de uma jornada cultural viva, respeitosa e transformadora.</p>
+    </div>
 
-        <section id="contato" class="contato-page">
-          <div class="formulario">
-            <h2>Bora conversar?</h2>
-            <form action="https://formspree.io/f/TEU_ID" method="POST">
-              <div class="input-group">
-                <input type="text" name="nome" required />
-                <label for="nome">Seu nome</label>
-              </div>
-              <div class="input-group">
-                <input type="email" name="email" required />
-                <label for="email">Seu e-mail</label>
-              </div>
-              <div class="input-group">
-                <textarea name="mensagem" required></textarea>
-                <label for="mensagem">Mensagem</label>
-              </div>
-              <button type="submit" class="btn">Enviar</button>
-            </form>
-          </div>
-        </section>
-      </div>
+    <div class="beneficio">
+      <i class="fas fa-heart"></i>
+      <h3>Atendimento com Cuidado</h3>
+      <p>Você é importante pra gente. Nossos anfitriões acompanham sua jornada do início ao fim com atenção genuína.</p>
+    </div>
 
-      <aside class="sidebar">
-        <h4>Mais lidos</h4>
-        <ul>
-          <li><a href="#">Guia de trilhas em Floripa</a></li>
-          <li><a href="#">Checklist de viagem leve</a></li>
-          <li><a href="#">Turismo sustentável explicado</a></li>
-        </ul>
+    <div class="beneficio">
+      <i class="fas fa-map-marked-alt"></i>
+      <h3>Roteiros Personalizados</h3>
+      <p>Viagens moldadas ao seu tempo, ritmo e estilo. Aqui, o planejamento é feito com alma — e estratégia.</p>
+    </div>
 
-        <section id="recomendo" class="hero">
-          <h2>Minhas Recomendações</h2>
-          <p>Produtos, cursos e experiências que realmente uso e indico.</p>
-          <h2>Cursos que recomendo</h2>
-          <div class="card-grid">
-            <article class="card">
-              <img src="img/curso-escrita.jpg" alt="Curso Escrita Autêutica" />
-              <h3>Escrita Autêutica</h3>
-              <p>Destrave sua escrita com verdade.</p>
-              <a href="#" class="btn-small">Ver curso</a>
-            </article>
-            <article class="card">
-              <img src="img/slow-content.jpg" alt="Curso Slow Content" />
-              <h3>Slow Content</h3>
-              <p>Crie com presença e propósito.</p>
-              <a href="#" class="btn-small">Acessar agora</a>
-            </article>
-          </div>
-        </section>
+    <div class="beneficio">
+      <i class="fas fa-gamepad"></i>
+      <h3>Turismo Interativo</h3>
+      <p>Embarque em uma aventura única com nosso <strong>ARG premium exclusivo</strong>: um jogo narrativo que revela segredos da Ilha de forma lúdica, sensorial e surpreendente.</p>
+    </div>
 
-        <div>
-          <h4>Redes Sociais</h4>
-          <ul>
-            <li><a href="https://instagram.com/sustaina_trip" target="_blank">Instagram</a></li>
-            <li><a href="https://facebook.com/sustaina_trip" target="_blank">Facebook</a></li>
-            <li><a href="https://linkedin.com/in/sustaina_trip" target="_blank">LinkedIn</a></li>
-          </ul>
-        </div>
-      </aside>
-    </section>
+    <div class="beneficio">
+      <i class="fas fa-mask"></i>
+      <h3>Ilha dos Segredos</h3>
+      <p>Explore trilhas, histórias ocultas, QR codes misteriosos, mensagens cifradas e pistas que só os viajantes mais atentos conseguem decifrar. Ideal para quem busca uma viagem fora do comum.</p>
+    </div>
+  </div>
+</section>
+
+  <!-- ARG ops, era phishing -->  
+  <div class="card arg-phishing" style="background: #111; color: #eee; border: 2px dashed #00ffcc; box-shadow: 0 0 12px #00ffcc;">  
+    <img src="imagens/glitch.gif" alt="Imagem glitched de um terminal" style="filter: grayscale(100%) contrast(120%);">  
+    <h3>🕳️ MEMBRANA</h3>  
+    <p><em>“Você não encontrou esse roteiro. Ele encontrou você.”</em><br>  
+    Um jogo de realidade alternada onde segurança digital, IA e paranoia se misturam. Se você recebeu um e-mail estranho ou um link corrompido... talvez já esteja dentro. Bem-vindo(a) ao ARG <strong>‘ops, era phishing apresenta: MEMBRANA’</strong>.</p>  
+    <a href="#membrana" class="botao" style="background: #00ffcc; color: #111; text-alignment: center">Infiltrar</a>  
+  </div>  
+</section>
+<!--CTA-->
+<section id="cta" class="cta">
+  <div class="cta-content">
+    <h2>Pronto pra embarcar em uma jornada transformadora?</h2>
+    <p>Descubra lugares incríveis, conecte-se com culturas locais e viaje com propósito. Bora viver uma experiência que faz sentido de verdade?</p>
+    
+    <a href="https://wa.me/5548988742011" target="_blank" class="btn-cta">
+      Fale com a gente no WhatsApp
+    </a>
+    <small class="subtexto">Atendimento rápido. Resposta em até 24h.</small>
+  </div>
+</section> 
+<!-- ARG ops era phishing -->
+<div id="membrana-arg" style="margin: 60px auto; padding: 30px; max-width: 900px; background: linear-gradient(135deg, #1a202c, #2d3748); color: #f7fafc; border-radius: 16px; box-shadow: 0 0 20px rgba(0, 255, 200, 0.2); font-family: 'Courier New', monospace;">
+  <h2 style="font-size: 1.8em; color: #63f5c1;">🧠 MEMBRANA: Um ARG psicológico digital</h2>
+  <p style="font-size: 1.1em; line-height: 1.6em;">
+    O que começa como um jogo... termina como uma dúvida na sua mente. <br><br>
+    <strong>MEMBRANA</strong> é um ARG narrativo de terror tecnológico onde você mergulha em camadas de paranoia, criptografia sensorial e IAs fora de controle. A experiência mistura redes sociais, e-mails, locais reais e arquivos corrompidos — tudo sob a fachada da segurança digital.
+  </p>
+  <p style="margin-top: 20px; font-style: italic; color: #90cdf4;">Desenvolvido por 'ops, era phishing' em parceria com a Sustaina Trip Turismo.</p>
+</div>   
+<aside class="aside" style="background-color: #f7fafc; padding: 40px 20px; border-top: 3px solid #4a5568;">
+  <section id="recomendo" class="hero" style="max-width: 1000px; margin: auto; text-align: center;">
+    <h2 style="color: #2d3748; font-size: 2em; margin-bottom: 10px;">🎒 Minhas Recomendações</h2>
+    <p style="color: #4a5568; font-size: 1.1em; margin-bottom: 30px;">Produtos, cursos e experiências que realmente uso e indico com consciência.</p>
+
+    <h2 style="color: #2b6cb0; font-size: 1.6em; margin-bottom: 20px;">📚 Cursos que Recomendo</h2>
+    <div class="card-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+      <article class="card" style="background: #ffffff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); padding: 20px; width: 280px;">
+        <img src="img/curso-escrita.jpg" alt="Curso Escrita Autêntica" style="width: 100%; border-radius: 8px;" />
+        <h3 style="margin-top: 15px; color: #2d3748;">Escrita Autêntica</h3>
+        <p style="color: #4a5568;">Destrave sua escrita com verdade.</p>
+        <a href="https://hotmart.com/pt-br/c/curso-escrita-autentica" target="_blank" style="color: #ffffff; background: #3182ce; padding: 10px 20px; border-radius: 6px; display: inline-block; text-decoration: none; margin-top: 10px;">Ver curso</a>
+      </article>
+
+      <article class="card" style="background: #ffffff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); padding: 20px; width: 280px;">
+        <img src="img/slow-content.jpg" alt="Curso Slow Content" style="width: 100%; border-radius: 8px;" />
+        <h3 style="margin-top: 15px; color: #2d3748;">Slow Content</h3>
+        <p style="color: #4a5568;">Crie com presença e propósito.</p>
+        <a href="https://hotmart.com/pt-br/c/slow-content-curso" target="_blank" style="color: #ffffff; background: #3182ce; padding: 10px 20px; border-radius: 6px; display: inline-block; text-decoration: none; margin-top: 10px;">Acessar agora</a>
+      </article>
+    </div>
+
+    <h2 style="color: #2b6cb0; font-size: 1.6em; margin: 40px 0 20px;">🌐 Ferramentas e Sites Parceiros</h2>
+    <div class="card-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+      <article class="card" style="background: #ffffff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); padding: 20px; width: 280px;">
+        <img src="img/hostinger.jpg" alt="Hostinger" style="width: 100%; border-radius: 8px;" />
+        <h3 style="margin-top: 15px; color: #2d3748;">Hospedagem Hostinger</h3>
+        <p style="color: #4a5568;">Rápida, segura e barata. É a que uso nos meus projetos.</p>
+        <a href="https://www.hostg.xyz/hostinger-afiliado" target="_blank" style="color: #ffffff; background: #38a169; padding: 10px 20px; border-radius: 6px; display: inline-block; text-decoration: none; margin-top: 10px;">Ver planos</a>
+      </article>
+
+      <article class="card" style="background: #ffffff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); padding: 20px; width: 280px;">
+        <img src="img/booking.jpg" alt="Booking.com" style="width: 100%; border-radius: 8px;" />
+        <h3 style="margin-top: 15px; color: #2d3748;">Booking.com</h3>
+        <p style="color: #4a5568;">Reserve hospedagens com segurança e praticidade.</p>
+        <a href="https://www.booking.com/index.html?aid=SEU-CODIGO-AQUI" target="_blank" style="color: #ffffff; background: #805ad5; padding: 10px 20px; border-radius: 6px; display: inline-block; text-decoration: none; margin-top: 10px;">Reservar</a>
+      </article>
+
+      <article class="card" style="background: #ffffff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); padding: 20px; width: 280px;">
+        <img src="img/indico-produto.jpg" alt="Produto recomendado" style="width: 100%; border-radius: 8px;" />
+        <h3 style="margin-top: 15px; color: #2d3748;">Produto de Confiança</h3>
+        <p style="color: #4a5568;">Um item essencial na minha rotina. Vale cada centavo.</p>
+        <a href="https://link-do-produto.com" target="_blank" style="color: #ffffff; background: #d69e2e; padding: 10px 20px; border-radius: 6px; display: inline-block; text-decoration: none; margin-top: 10px;">Conferir agora</a>
+      </article>
+    </div>
+  </section>
+</aside> 
   </main>
+    <footer class="footer">
+  <div class="footer-container">
+    
+    <div class="footer-logo">
+      <h3>SustainaTrip</h3>
+      <p>Explorando o mundo com propósito.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Links rápidos</h4>
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#roteiros">Roteiros</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contato">
+      <h4>Contato</h4>
+      <p>Email: contato@sustainatrip.tur.br</p>
+      <p>WhatsApp: (48) 98874-2011</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-newsletter">
+      <h4>Receba novidades</h4>
+      <form>
+        <input type="email" placeholder="Seu email" required>
+        <button type="submit">Inscrever</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 SustainaTrip Turismo. Todos os direitos reservados.</p>
+    <a href="#topo" class="btn-topo">↑ Voltar ao topo</a>
+  </div>
+</footer>
+
 </body>
 </html>
 

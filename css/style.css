@@ -116,7 +116,7 @@ header h1 a:hover {
 /* === HERO / SECTIONS === */
 .hero,
 .sobre,
-.servicos-section,
+.servicos,
 .blog-section {
   padding: 4rem 2rem;
   text-align: center;
@@ -159,18 +159,18 @@ header h1 a:hover {
   color: var(--primary-color);
 }
 
-.servicos-section {
+.servicos {
   background: linear-gradient(145deg, var(--primary-color), rgba(0, 0, 0, 0.4));
 }
 
-.servicos-grid {
+.cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
 
-.servico-card {
+.card {
   background: var(--secondary-color);
   border-radius: 10px;
   padding: 1.5rem;
@@ -178,7 +178,7 @@ header h1 a:hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.servico-card:hover {
+.card:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 25px rgba(0, 255, 200, 0.2);
 }
@@ -202,6 +202,103 @@ header h1 a:hover {
   border-radius: 10px;
   margin-bottom: 1.5rem;
   box-shadow: 0 0 15px rgba(0, 255, 200, 0.05);
+}
+/* === CALL TO ACTION === */
+.cta {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('caminho-da-sua-imagem.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 80px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.cta-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.btn-cta {
+  background-color: #34af23;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cta:hover {
+  background-color: #2b921d;
+
+}
+.cta .subtexto {
+  display: block; /* Essa linha aqui é a chave do sucesso */
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* === sobre/diferencial === */
+.diferenciais {
+  background-color: #f5f5f5;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.diferenciais h2 {
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.diferenciais p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.beneficios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.beneficio {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.beneficio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.beneficio i {
+  font-size: 2.5rem;
+  color: #34af23;
+  margin-bottom: 15px;
+}
+
+.beneficio h3 {
+  font-size: 1.3rem;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.beneficio p {
+  font-size: 1rem;
+  color: #666;
 }
 
 /* === FORMULÁRIO === */
@@ -258,27 +355,112 @@ footer {
   text-align: center;
   font-size: 0.9rem;
 }
-
-/* === BOTÃO VOLTAR AO TOPO === */
-#back-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  padding: 0.8rem;
-  border-radius: 50%;
-  background: var(--accent-color);
-  color: var(--primary-color);
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  display: none;
-  z-index: 1000;
-  transition: background 0.3s, transform 0.3s;
+/* === FOOTER 2.0 === */
+.footer {
+  background-color: #0c3c2c;
+  color: #fff;
+  padding: 50px 20px 30px;
+  font-size: 0.95rem;
 }
 
-#back-to-top:hover {
-  background: var(--link-hover);
-  transform: scale(1.1);
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer h3, .footer h4 {
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.footer-logo p {
+  max-width: 280px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #80e1b3;
+}
+
+.footer-contato p {
+  margin-bottom: 8px;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  color: #fff;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #80e1b3;
+}
+
+.footer-newsletter form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-newsletter input {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.footer-newsletter button {
+  background-color: #80e1b3;
+  color: #0c3c2c;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.footer-newsletter button:hover {
+  background-color: #5bd19a;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #1a5c45;
+  font-size: 0.85rem;
+  color: #ccc;
+  position: relative;
+}
+
+.btn-topo {
+  display: inline-block;
+  margin-top: 10px;
+  color: #80e1b3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn-topo:hover {
+  text-decoration: underline;
 }
 
 /* === COOKIE BANNER === */
@@ -376,3 +558,278 @@ a:hover {
   }
 }
 
+.sidebar {
+  width: 280px;
+  padding: 20px;
+  background-color: #f7f9f8; /* tom leve, clean */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  border-radius: 8px;
+}
+
+/* Títulos da sidebar */
+.sidebar h2,
+.sidebar h4 {
+  margin-bottom: 15px;
+  color: #1a3d2e; /* verde escuro */
+  font-weight: 700;
+  border-bottom: 2px solid #00df81;
+  padding-bottom: 6px;
+}
+
+/* Lista “Mais Lidos” */
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 30px;
+}
+
+.sidebar ul li {
+  margin-bottom: 12px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #1a3d2e;
+  font-weight: 600;
+  transition: color 0.25s ease;
+}
+
+.sidebar ul li a:hover {
+  color: #00df81;
+  text-decoration: underline;
+}
+
+/* Seção Recomendações */
+.sidebar .hero {
+  margin-bottom: 30px;
+}
+
+/* Cards grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 10px 15px 5px;
+  color: #004d40;
+  font-size: 1rem;
+}
+
+.card p {
+  margin: 0 15px 10px;
+  font-size: 0.85rem;
+  color: #555;
+  flex-grow: 1;
+}
+
+.btn-small {
+  display: inline-block;
+  margin: 0 15px 15px;
+  background-color: #00df81;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-small:hover {
+  background-color: #00b366;
+}
+
+/* Redes Sociais */
+.sidebar > div:last-child {
+  margin-top: 20px;
+}
+
+.sidebar > div:last-child ul {
+  display: flex;
+  gap: 15px;
+  padding-left: 0;
+}
+
+.sidebar > div:last-child ul li a {
+  color: #1a3d2e;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.sidebar > div:last-child ul li a:hover {
+  border-color: #00df81;
+}
+
+/* Responsividade simples */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 100%;
+    padding: 15px;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.container-tri {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.image-gallery,
+.contato-page {
+  flex: 1 1 40%;
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+}
+
+.aside {
+  flex: 0 0 20%;
+  padding: 20px;
+  background: #f7f9f8;
+  border-radius: 8px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.grid-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.grid-gallery img {
+  width: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+  height: 150px;
+}
+
+/* Formulario */
+.formulario h2 {
+  margin-bottom: 20px;
+  color: #004d40;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  resize: vertical;
+  background: #fff;
+}
+
+.input-group label {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  color: #999;
+  pointer-events: none;
+  transition: 0.3s ease all;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:focus + label,
+.input-group textarea:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 8px;
+  font-size: 0.75rem;
+  color: #00df81;
+  background: #fafafa;
+  padding: 0 4px;
+}
+
+.btn {
+  background-color: #00df81;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #00b366;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .container-tri {
+    flex-direction: column;
+  }
+
+  .image-gallery,
+  .contato-page,
+  .aside {
+    flex: 1 1 100%;
+    margin-bottom: 25px;
+  }
+
+  .grid-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+    .video-bg::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      z-index: 1;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      margin: 6px auto;
+      transition: all 0.3s ease-in-out;
+      background-color: #fff;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }

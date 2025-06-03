@@ -1,0 +1,35 @@
+# Node modules (caso use Tailwind via PostCSS ou build local)
+node_modules/
+
+# Build final do Tailwind (output gerado)
+dist/output.css
+dist/*.map
+
+# Arquivos temporários
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+
+# Pastas do sistema
+.DS_Store
+Thumbs.db
+
+# VSCode config (caso use)
+.vscode/
+
+# Arquivos sensíveis ou locais
+.env
+.env.local
+.env.*
+
+# Cache de dependências
+package-lock.json
+yarn.lock
+.pnpm-debug.log
+
+# Arquivos de deploy temporários
+deploy/
+build/
+.cache/

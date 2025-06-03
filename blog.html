@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sustaina Trip Turismo</title>
+    <meta name="description" content="Ecoturismo, conexão com a natureza e experiências transformadoras em Florianópolis." />
+    <link rel="stylesheet" href="css/blog-style.css" />
+    <link rel="stylesheet" href="dist/output.css" />
+    <link rel="icon" href="favicon.ico" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 font-sans">
+
+    <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:py-4">
+    <a href="index.html" class="text-2xl font-bold text-emerald-700">Sustaina Trip</a>
+    
+    <!-- Botão Mobile -->
+    <button id="menu-btn" class="md:hidden focus:outline-none">
+      <div class="hamburger space-y-1.5 transition-all duration-300">
+        <span class="block w-6 h-0.5 bg-emerald-700"></span>
+        <span class="block w-6 h-0.5 bg-emerald-700"></span>
+        <span class="block w-6 h-0.5 bg-emerald-700"></span>
+      </div>
+    </button>
+
+    <!-- Menu -->
+    <nav id="menu" class="hidden md:flex gap-6 text-emerald-700 font-medium">
+      <a href="index.html">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="https://www.sustainatrip.tur.br/">Experiências</a>
+    </nav>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden flex-col px-4 pb-4 bg-white">
+    <a href="blog.html" class="py-2 text-emerald-700 font-medium">Início</a>
+    <a href="sobre.html" class="py-2 text-emerald-700 font-medium">Sobre</a>
+    <a href="https://www.sustainatrip.tur.br/" class="py-2 text-emerald-700 font-medium">Experiências</a>
+  </div>
+</header>
+
+<!-- Espaço para compensar header fixo -->
+<div class="h-20"></div>
+
+<section class="hero-container">
+  <div class="hero-content">
+    <h1>🌿 Bem-vindo ao Blog da <span class="highlight">Sustaina Trip Turismo</span></h1>
+    <p class="slogan">Explorando destinos que curam, conectam e transformam.</p>
+    <a href="#posts" class="cta-button">Ver últimas publicações</a>
+  </div>
+</section>
+
+    <main id="posts" class="p-4 max-w-4xl mx-auto grid gap-6 mt-6">
+      <!-- Os posts do WordPress vão ser injetados aqui via JS -->
+    </main>
+
+    <footer class="mt-12 p-4 bg-gray-100 dark:bg-gray-800 text-center text-sm text-gray-600 dark:text-gray-300">
+      © <span id="year"></span> Sustaina Trip Turismo. Todos os direitos reservados.
+
+<!-- voltar ao blog-->
+
+<a href="blog.html" class="btn-voltar" title="Voltar ao blog">← Voltar</a>
+
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/index.js" type="module"></script>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+<div class="bg-black-500 text-white text-center p-2">
+  Desenvolvido por Kenner Vásquez 
+</div>
+  </body>
+</html>

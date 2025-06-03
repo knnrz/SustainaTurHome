@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post | Sustaina Trip Turismo</title>
+    <meta name="description" content="Post de blog - Sustaina Trip Turismo" />
+    <link rel="stylesheet" href="css/blog-style.css" />
+    <link rel="stylesheet" href="dist/output.css" />
+    <link rel="icon" href="favicon.ico" />
+<script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 font-sans">
+<header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:py-4">
+    <a href="blog.html" class="text-2xl font-bold text-emerald-700">Sustaina Trip</a>
+    
+    <!-- Botão Mobile -->
+    <button id="menu-btn" class="md:hidden focus:outline-none">
+      <div class="hamburger space-y-1.5 transition-all duration-300">
+        <span class="block w-6 h-0.5 bg-emerald-700"></span>
+        <span class="block w-6 h-0.5 bg-emerald-700"></span>
+        <span class="block w-6 h-0.5 bg-emerald-700"></span>
+      </div>
+    </button>
+
+    <!-- Menu -->
+    <nav id="menu" class="hidden md:flex gap-6 text-emerald-700 font-medium">
+      <a href="blog.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="https://www.sustainatrip.tur.br/">Experiências</a>
+    </nav>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden flex-col px-4 pb-4 bg-white">
+    <a href="blog.html" class="py-2 text-emerald-700 font-medium">Início</a>
+    <a href="sobre.html" class="py-2 text-emerald-700 font-medium">Sobre</a>
+    <a href="https://www.sustainatrip.tur.br/" class="py-2 text-emerald-700 font-medium">Experiências</a>
+  </div>
+</header>
+
+<!-- Espaço para compensar header fixo -->
+<div class="h-20"></div>
+    <main class="p-4 max-w-3xl mx-auto mt-6">
+<!-- Barra de progresso de leitura -->
+<div id="progress-bar" class="fixed top-0 left-0 h-1 bg-green-600 z-50" style="width: 0%"></div>
+
+      <article id="post-content" class="prose dark:prose-invert max-w-none">
+  <h1 id="post-title" class="text-3xl font-bold mb-2"></h1>
+  <span id="post-date" class="text-sm text-gray-500 mb-1 block"></span>
+  <span id="read-time" class="text-sm text-gray-400 mb-6 block">⏳ Calculando leitura...</span>
+  <div id="post-body">
+    <p>Carregando post...</p>
+  </div>
+</article>
+
+<!--leituras relacionadas-->
+<section class="mt-12">
+  <h2 class="text-2xl font-semibold text-green-700 mb-4">🌱 Leituras Relacionadas</h2>
+  <div id="related-posts" class="grid gap-4 sm:grid-cols-2"></div>
+</section>
+    </main>
+
+<!-- Botões flutuantes de compartilhamento -->
+<div id="share-widget" class="fixed bottom-6 right-4 z-50 flex flex-col gap-2 items-end">
+  <!-- Copiar link -->
+  <button onclick="shareLink()" title="Copiar link"
+    class="bg-gray-800 text-white p-3 rounded-full shadow-lg hover:bg-gray-900 transition flex items-center justify-center">
+    <!-- Ícone link SVG -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+      stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M10 14L21 3m0 0a2.828 2.828 0 00-4-4l-9 9m13 0L10 14m0 0l-6 6a2.828 2.828 0 004 4l6-6" />
+    </svg>
+  </button>
+
+  <!-- WhatsApp -->
+  <a id="whatsapp-share" target="_blank" title="Compartilhar no WhatsApp"
+    class="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition flex items-center justify-center">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M12.004 2.003a9.991 9.991 0 00-8.635 14.87L2 22l5.21-1.37a9.99 9.99 0 004.795 1.2h.001a10 10 0 000-20zm-.005 18a8.012 8.012 0 01-4.062-1.11l-.291-.171-3.094.816.826-3.016-.19-.309A8.006 8.006 0 1111.999 20z" />
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.672.15-.198.297-.77.967-.946 1.165-.173.198-.347.223-.644.075-.297-.149-1.256-.463-2.39-1.475-.883-.786-1.48-1.753-1.653-2.05-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.151-.173.201-.298.3-.496.099-.198.05-.372-.025-.521-.074-.148-.672-1.613-.921-2.209-.242-.58-.487-.5-.672-.51l-.572-.01a1.1 1.1 0 00-.8.373c-.274.298-1.048 1.024-1.048 2.5s1.073 2.9 1.222 3.103c.149.198 2.111 3.22 5.114 4.515.715.309 1.27.493 1.705.63.717.228 1.37.196 1.885.119.575-.086 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347z" />
+    </svg>
+  </a>
+
+  <!-- Twitter (X) -->
+  <a id="twitter-share" target="_blank" title="Compartilhar no X (Twitter)"
+    class="bg-black text-white p-3 rounded-full shadow-lg hover:bg-gray-900 transition flex items-center justify-center">
+    <!-- Ícone do X (Twitter) -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+      <path
+        d="M20.792 3H17.6L13.8 8.376 9.936 3H3l7.368 10.32L3.52 21h3.2l3.936-5.592L15.168 21H22l-7.704-10.8L20.792 3z" />
+    </svg>
+  </a>
+</div>
+
+    <footer class="mt-12 p-4 bg-gray-100 dark:bg-gray-800 text-center text-sm text-gray-600 dark:text-gray-300">
+      © <span id="year"></span> Sustaina Trip Turismo. Todos os direitos reservados.
+
+<!-- voltar ao blog-->
+
+<a href="blog.html" class="btn-voltar" title="Voltar ao blog">← Voltar</a>
+
+    </footer>
+
+    <script src="js/post.js" type="module"></script>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+  </body>
+</html>
