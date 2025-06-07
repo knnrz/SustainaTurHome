@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sustaina Trip Turismo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@500&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #d2ede1, #eafbf4);
+      font-family: 'Eczar', serif;
+      color: #2c4433;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .leaf {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: url('https://cdn-icons-png.flaticon.com/512/427/427735.png') no-repeat center;
+      background-size: contain;
+      animation: float 12s infinite ease-in-out;
+      opacity: 0.08;
+    }
+
+    .leaf:nth-child(1) {
+      top: 10%;
+      left: 20%;
+      animation-delay: 0s;
+    }
+
+    .leaf:nth-child(2) {
+      top: 40%;
+      left: 70%;
+      animation-delay: 2s;
+    }
+
+    .leaf:nth-child(3) {
+      top: 80%;
+      left: 40%;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(20deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+
+    .container {
+      text-align: center;
+      padding: 2rem;
+      max-width: 700px;
+      animation: fadeIn 2.5s ease;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      color: #1d3b2a;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    p {
+      font-size: 1.25rem;
+      color: #385943;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .enter-btn {
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: #1d3b2a;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .enter-btn:hover {
+      background-color: #2c6042;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 2.2rem; }
+      p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Folhas decorativas flutuando -->
+  <div class="leaf"></div>
+  <div class="leaf"></div>
+  <div class="leaf"></div>
+
+  <div class="container">
+    <h1>Bem-vinde à Sustaina Trip</h1>
+    <p>🌿 Prepare-se para uma jornada que vai além do turismo.<br>
+       Aqui, cada passo é uma conexão com a natureza, com culturas vivas e com a sua própria essência.</p>
+    <button class="enter-btn" onclick="location.href='main/index.html'">Entrar no Portal</button>
+  </div>
+
+</body>
+</html>
