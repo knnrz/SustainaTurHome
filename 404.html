@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Página não encontrada</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 8rem;
+      color: #ff3c00;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.6; }
+    }
+
+    .glitch-text {
+      font-size: 1.5rem;
+      margin: 20px 0;
+      color: #aaa;
+      height: 1.5em;
+      overflow: hidden;
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .glitch-text::after {
+      content: '|';
+      animation: blink 1s infinite;
+      position: absolute;
+      right: 0;
+      color: #00f7ff;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    a {
+      margin-top: 30px;
+      padding: 12px 24px;
+      border: 2px solid #00f7ff;
+      background: transparent;
+      color: #00f7ff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    a:hover {
+      background: #00f7ff;
+      color: #0e0e0e;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+  </style>
+</head>
+<body>
+
+  <canvas id="stars"></canvas>
+
+  <h1>404</h1>
+  <div class="glitch-text" id="typewriter"></div>
+  <a href="index.html">Voltar para o início</a>
+
+  <script>
+    // Typewriter effect
+    const msg = "A página que você procura foi abduzida.";
+    let i = 0;
+    const speed = 80;
+    const typeTarget = document.getElementById("typewriter");
+
+    function typeWriter() {
+      if (i < msg.length) {
+        typeTarget.innerHTML += msg.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+    typeWriter();
+
+    // Starfield animation
+    const canvas = document.getElementById("stars");
+    const ctx = canvas.getContext("2d");
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    const stars = Array.from({ length: 100 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.5 + 0.5,
+      d: Math.random() * 0.5 + 0.1
+    }));
+
+    function animateStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#00f7ff";
+
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+        ctx.fill();
+        star.y += star.d;
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
+        }
+      });
+
+      requestAnimationFrame(animateStars);
+    }
+    animateStars();
+  </script>
+
+</body>
+</html>
