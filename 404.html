@@ -19,13 +19,14 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      padding: 5vw;
       min-height: 100vh;
       text-align: center;
       overflow: hidden;
     }
 
     h1 {
-      font-size: 8rem;
+      font-size: clamp(4rem, 10vw, 10rem);
       color: #ff3c00;
       animation: pulse 2s infinite ease-in-out;
     }
@@ -36,10 +37,10 @@
     }
 
     .glitch-text {
-      font-size: 1.5rem;
+      font-size: clamp(1rem, 3vw, 2rem);
       margin: 20px 0;
       color: #aaa;
-      height: 1.5em;
+      height: 2em;
       overflow: hidden;
       position: relative;
       white-space: nowrap;
@@ -60,7 +61,7 @@
 
     a {
       margin-top: 30px;
-      padding: 12px 24px;
+      padding: 1rem 2rem;
       border: 2px solid #00f7ff;
       background: transparent;
       color: #00f7ff;
@@ -68,6 +69,7 @@
       font-weight: bold;
       border-radius: 8px;
       transition: background 0.3s, color 0.3s;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
     }
 
     a:hover {
@@ -82,6 +84,20 @@
       z-index: -1;
     }
 
+    @media (max-width: 480px) {
+      body {
+        padding: 10vw;
+      }
+
+      .glitch-text {
+        height: 2.5em;
+      }
+
+      a {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
   </style>
 </head>
 <body>
