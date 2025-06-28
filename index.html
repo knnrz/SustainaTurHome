@@ -165,17 +165,6 @@
     <small class="subtexto">Atendimento rápido. Resposta em até 24h.</small>
   </div>
 </section> 
-<!-- ARG ops era phishing -->
-<div id="membrana-arg" style="margin: 60px auto; padding: 30px; max-width: 900px; background: linear-gradient(135deg, #1a202c, #2d3748); color: #f7fafc; border-radius: 16px; box-shadow: 0 0 20px rgba(0, 255, 200, 0.2); font-family: 'Courier New', monospace;">
-  <h2 style="font-size: 1.8em; color: #63f5c1;">🧠 MEMBRANA: Um ARG psicológico digital</h2>
-  <p style="font-size: 1.1em; line-height: 1.6em;">
-    O que começa como um jogo... termina como uma dúvida na sua mente. <br><br>
-    <strong>MEMBRANA</strong> é um ARG narrativo de terror tecnológico onde você mergulha em camadas de paranoia, criptografia sensorial e IAs fora de controle. A experiência mistura redes sociais, e-mails, locais reais e arquivos corrompidos — tudo sob a fachada da segurança digital.
-  </p>
-<div class="btn-container">
-  <a href="https://ops-era-phishing.github.io/Membrana/" target="_blank" class="btn-small">Membrana</a>
-  <a href="https://terrortech.sustainatrip.tur.br" target="_blank" class="btn-small">Conhecer as Histórias</a>
-</div>
 
 <style>
   .btn-container {
@@ -211,8 +200,6 @@
   }
 </style>
 
-  <p style="margin-top: 20px; font-style: italic; color: #90cdf4;">Desenvolvido por 'ops, era phishing' em parceria com a Sustaina Trip Turismo.</p>
-
 <!-- Botão flutuante para abrir o status -->
 <button id="abrir-status" class="status-toggle-btn">📡 Status</button>
 <!-- Widget status   -->
@@ -221,7 +208,24 @@
   <div class="status-content">
     <span class="status-indicator">🟢 ONLINE</span> — Atendimento até 18h
     <br>
-    <small>Última: 07/06/2025 10:00</small>
+    <small id="ultimaAtualizacao"></small>
+
+<script>
+  function atualizarHorario() {
+    const agora = new Date();
+    const dia = String(agora.getDate()).padStart(2, '0');
+    const mes = String(agora.getMonth() + 1).padStart(2, '0'); // Janeiro é 0
+    const ano = agora.getFullYear();
+    const hora = String(agora.getHours()).padStart(2, '0');
+    const minuto = String(agora.getMinutes()).padStart(2, '0');
+
+    const formatado = `hora atual: ${dia}/${mes}/${ano} ${hora}:${minuto}`;
+    document.getElementById("ultimaAtualizacao").textContent = formatado;
+  }
+
+  atualizarHorario(); // atualiza ao carregar
+  setInterval(atualizarHorario, 60000); // atualiza a cada minuto
+</script>
     <br>
     <small>
       💬 <a href="https://wa.me/5548988742011" target="_blank">WhatsApp</a> / 
@@ -340,14 +344,14 @@
     <h2 style="color: #2b6cb0; font-size: 1.6em; margin-bottom: 20px;">📚 Cursos que Recomendo</h2>
     <div class="card-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
       <article class="card" style="background: #ffffff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); padding: 20px; width: 280px;">
-        <img src="img/curso-escrita.jpg" alt="Curso Escrita Autêntica" style="width: 100%; border-radius: 8px;" />
+        <img src="https://images.pexels.com/photos/851213/pexels-photo-851213.jpeg?_gl=1*4jal2n*_ga*MTkyMjgyMTM4NS4xNzUwOTgwMzEz*_ga_8JE65Q40S6*czE3NTA5ODAzMTIkbzEkZzEkdDE3NTA5ODAzMzgkajM0JGwwJGgw" alt="Curso Escrita Autêntica" style="width: 100%; border-radius: 8px;" />
         <h3 style="margin-top: 15px; color: #2d3748;">Escrita Autêntica</h3>
         <p style="color: #4a5568;">Destrave sua escrita com verdade.</p>
         <a href="https://hotmart.com/pt-br/c/curso-escrita-autentica" target="_blank" style="color: #ffffff; background: #3182ce; padding: 10px 20px; border-radius: 6px; display: inline-block; text-decoration: none; margin-top: 10px;">Ver curso</a>
       </article>
 
       <article class="card" style="background: #ffffff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); padding: 20px; width: 280px;">
-        <img src="img/slow-content.jpg" alt="Curso Slow Content" style="width: 100%; border-radius: 8px;" />
+        <img src="https://images.pexels.com/photos/10192280/pexels-photo-10192280.jpeg?_gl=1*g929e6*_ga*MTkyMjgyMTM4NS4xNzUwOTgwMzEz*_ga_8JE65Q40S6*czE3NTA5ODAzMTIkbzEkZzEkdDE3NTA5ODA1MDkkajU5JGwwJGgw" alt="Curso Slow Content" style="width: 100%; border-radius: 8px;" />
         <h3 style="margin-top: 15px; color: #2d3748;">Slow Content</h3>
         <p style="color: #4a5568;">Crie com presença e propósito.</p>
         <a href="https://hotmart.com/pt-br/c/slow-content-curso" target="_blank" style="color: #ffffff; background: #3182ce; padding: 10px 20px; border-radius: 6px; display: inline-block; text-decoration: none; margin-top: 10px;">Acessar agora</a>
@@ -357,24 +361,24 @@
     <h2 style="color: #2b6cb0; font-size: 1.6em; margin: 40px 0 20px;">🌐 Ferramentas e Sites Parceiros</h2>
     <div class="card-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
       <article class="card" style="background: #ffffff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); padding: 20px; width: 280px;">
-        <img src="img/hostinger.jpg" alt="Hostinger" style="width: 100%; border-radius: 8px;" />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1ZtbA9VLHuAM9vWdJey5EipoheTmpBBQB3PDRkgX0NhO7Jx3vxfvSUOFq&s=10" alt="Hostinger" style="width: 100%; border-radius: 8px;" />
         <h3 style="margin-top: 15px; color: #2d3748;">Hospedagem Hostinger</h3>
         <p style="color: #4a5568;">Rápida, segura e barata. É a que uso nos meus projetos.</p>
-        <a href="https://www.hostg.xyz/hostinger-afiliado" target="_blank" style="color: #ffffff; background: #38a169; padding: 10px 20px; border-radius: 6px; display: inline-block; text-decoration: none; margin-top: 10px;">Ver planos</a>
+        <a href="#https://www.hostg.xyz/hostinger-afiliado" target="_blank" style="color: #ffffff; background: #38a169; padding: 10px 20px; border-radius: 6px; display: inline-block; text-decoration: none; margin-top: 10px;">Ver planos</a>
       </article>
 
       <article class="card" style="background: #ffffff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); padding: 20px; width: 280px;">
-        <img src="img/booking.jpg" alt="Booking.com" style="width: 100%; border-radius: 8px;" />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQsGHYObVU4Nzop7kfh-rR5HDS734VkhHdfgP3DphjSTM0A-62XBefqsHR&s=10" alt="Booking.com" style="width: 100%; border-radius: 8px;" />
         <h3 style="margin-top: 15px; color: #2d3748;">Booking.com</h3>
         <p style="color: #4a5568;">Reserve hospedagens com segurança e praticidade.</p>
-        <a href="https://www.booking.com/index.html?aid=SEU-CODIGO-AQUI" target="_blank" style="color: #ffffff; background: #805ad5; padding: 10px 20px; border-radius: 6px; display: inline-block; text-decoration: none; margin-top: 10px;">Reservar</a>
+        <a href="#https://www.booking.com/index.html?aid=SEU-CODIGO-AQUI" target="_blank" style="color: #ffffff; background: #805ad5; padding: 10px 20px; border-radius: 6px; display: inline-block; text-decoration: none; margin-top: 10px;">Reservar</a>
       </article>
 
       <article class="card" style="background: #ffffff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); padding: 20px; width: 280px;">
-        <img src="img/indico-produto.jpg" alt="Produto recomendado" style="width: 100%; border-radius: 8px;" />
+        <img src="https://images.pexels.com/photos/8148587/pexels-photo-8148587.jpeg?_gl=1*11k2vle*_ga*MTkyMjgyMTM4NS4xNzUwOTgwMzEz*_ga_8JE65Q40S6*czE3NTA5ODAzMTIkbzEkZzEkdDE3NTA5ODE1NjAkajQ0JGwwJGgw" alt="Produto recomendado" style="width: 100%; border-radius: 8px;" />
         <h3 style="margin-top: 15px; color: #2d3748;">Produto de Confiança</h3>
         <p style="color: #4a5568;">Um item essencial na minha rotina. Vale cada centavo.</p>
-        <a href="https://link-do-produto.com" target="_blank" style="color: #ffffff; background: #d69e2e; padding: 10px 20px; border-radius: 6px; display: inline-block; text-decoration: none; margin-top: 10px;">Conferir agora</a>
+        <a href="#https://link-do-produto.com" target="_blank" style="color: #ffffff; background: #d69e2e; padding: 10px 20px; border-radius: 6px; display: inline-block; text-decoration: none; margin-top: 10px;">Conferir agora</a>
       </article>
     </div>
   </section>
@@ -426,4 +430,3 @@
 
 </body>
 </html>
-
