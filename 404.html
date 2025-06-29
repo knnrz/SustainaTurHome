@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>404 — Página não encontrada</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 — Caminho não encontrado</title>
   <style>
     * {
       margin: 0;
@@ -12,9 +12,9 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0e0e0e;
-      color: #f0f0f0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom, #f0f9f5, #d9efe2);
+      color: #2e4a42;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -22,75 +22,59 @@
       padding: 5vw;
       min-height: 100vh;
       text-align: center;
-      overflow: hidden;
+      background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-position: center;
     }
 
     h1 {
-      font-size: clamp(4rem, 10vw, 10rem);
-      color: #ff3c00;
-      animation: pulse 2s infinite ease-in-out;
+      font-size: clamp(3rem, 10vw, 6rem);
+      color: #216f52;
+      margin-bottom: 1rem;
     }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.1); opacity: 0.6; }
+    .message {
+      font-size: clamp(1.25rem, 3vw, 1.5rem);
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 1.5rem 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
     }
 
-    .glitch-text {
-      font-size: clamp(1rem, 3vw, 2rem);
-      margin: 20px 0;
-      color: #aaa;
-      height: 2em;
-      overflow: hidden;
-      position: relative;
-      white-space: nowrap;
-    }
-
-    .glitch-text::after {
-      content: '|';
-      animation: blink 1s infinite;
-      position: absolute;
-      right: 0;
-      color: #00f7ff;
-    }
-
-    @keyframes blink {
-      0%, 50% { opacity: 1; }
-      51%, 100% { opacity: 0; }
+    .message::before {
+      content: '🌱 ';
     }
 
     a {
-      margin-top: 30px;
+      display: inline-block;
+      margin-top: 10px;
       padding: 1rem 2rem;
-      border: 2px solid #00f7ff;
-      background: transparent;
-      color: #00f7ff;
-      text-decoration: none;
+      border: none;
+      background-color: #216f52;
+      color: #ffffff;
       font-weight: bold;
-      border-radius: 8px;
-      transition: background 0.3s, color 0.3s;
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      text-decoration: none;
+      border-radius: 12px;
+      transition: background 0.3s ease;
+      font-size: 1rem;
     }
 
     a:hover {
-      background: #00f7ff;
-      color: #0e0e0e;
+      background-color: #1a5c44;
     }
 
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
+    footer {
+      margin-top: 40px;
+      font-size: 0.85rem;
+      color: #2e4a42;
     }
 
-    @media (max-width: 480px) {
-      body {
-        padding: 10vw;
-      }
-
-      .glitch-text {
-        height: 2.5em;
+    @media (max-width: 600px) {
+      .message {
+        font-size: 1rem;
+        padding: 1rem;
       }
 
       a {
@@ -102,65 +86,19 @@
 </head>
 <body>
 
-  <canvas id="stars"></canvas>
-
   <h1>404</h1>
-  <div class="glitch-text" id="typewriter"></div>
+  <div class="message">
+    Parece que você pegou uma trilha alternativa 🌾<br />
+    Essa página não existe ou foi movida...<br /><br />
+    Mas cada desvio pode ser uma chance de recomeço.<br />
+    Que tal voltar e explorar novos caminhos?
+  </div>
+
   <a href="index.html">Voltar para o início</a>
 
-  <script>
-    // Typewriter effect
-    const msg = "A página que você procura foi abduzida.";
-    let i = 0;
-    const speed = 80;
-    const typeTarget = document.getElementById("typewriter");
-
-    function typeWriter() {
-      if (i < msg.length) {
-        typeTarget.innerHTML += msg.charAt(i);
-        i++;
-        setTimeout(typeWriter, speed);
-      }
-    }
-    typeWriter();
-
-    // Starfield animation
-    const canvas = document.getElementById("stars");
-    const ctx = canvas.getContext("2d");
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
-
-    const stars = Array.from({ length: 100 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 1.5 + 0.5,
-      d: Math.random() * 0.5 + 0.1
-    }));
-
-    function animateStars() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#00f7ff";
-
-      stars.forEach(star => {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-        ctx.fill();
-        star.y += star.d;
-        if (star.y > canvas.height) {
-          star.y = 0;
-          star.x = Math.random() * canvas.width;
-        }
-      });
-
-      requestAnimationFrame(animateStars);
-    }
-    animateStars();
-  </script>
+  <footer>
+    SustainaTrip Turismo • Turismo regenerativo com propósito
+  </footer>
 
 </body>
 </html>
