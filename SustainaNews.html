@@ -450,4 +450,186 @@
               <a href="#post-${post.id}" class="block group">
                 ${featuredImage}
                 <h3 class="text-xl font-bold mb-2 group-hover:text-blue-600 transition duration-300">${post.title.rendered}</h3>
-                <div 
+                <div class="text-sm text-gray-500 mb-3">${postDate}</div>
+                <div class="text-gray-700 line-clamp-2">${post.excerpt.rendered}</div>
+                ${categories}
+              </a>
+            `;
+          } else {
+            // Regular post layout
+            postElement.innerHTML = `
+              ${featuredImage}
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <span>${postDate}</span>
+                <span class="mx-2">•</span>
+                ${categories}
+              </div>
+              <h3 class="text-2xl font-bold mb-3 hover:text-blue-600 transition duration-300">
+                <a href="#post-${post.id}">${post.title.rendered}</a>
+              </h3>
+              <div class="text-gray-700 mb-4">${post.excerpt.rendered}</div>
+              <a href="#post-${post.id}" class="inline-flex items-center text-blue-800 font-medium hover:text-blue-600 transition duration-300">
+                Ler mais <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            `;
+          }
+          
+          // Add click handler to show full post
+          postElement.querySelectorAll(`a[href="#post-${post.id}"]`).forEach(link => {
+            link.addEventListener('click', (e) => {
+              e.preventDefault();
+              showFullPost(post);
+            });
+          });
+          
+          return postElement;
+        }
+        
+        // Function to show full post
+        function showFullPost(post) {
+          // Create modal container
+          const modal = document.createElement('div');
+          modal.className = 'fixed inset-0 bg-black bg-opacity-75 z-50 overflow-y-auto p-4 md:p-8';
+          
+          // Modal content
+          modal.innerHTML = `
+            <div class="bg-white rounded-lg max-w-4xl mx-auto my-8 p-6 md:p-8">
+              <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl">
+                <i class="fas fa-times"></i>
+              </button>
+              
+              <article class="article-content">
+                <div class="flex items-center text-sm text-gray-500 mb-4">
+                  <span>${new Date(post.date).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                  ${post._embedded?.['wp:term']?.[0]?.map(cat => 
+                    `<span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded ml-2">${cat.name}</span>`
+                  ).join('') || ''}
+                </div>
+                
+                <h2 class="text-3xl font-bold mb-6">${post.title.rendered}</h2>
+                
+                ${post._embedded?.['wp:featuredmedia']?.[0]?.source_url ? `
+                  <img loading="lazy" src="${post._embedded['wp:featuredmedia'][0].source_url}" 
+                       alt="${post._embedded['wp:featuredmedia'][0].alt_text}" 
+                       class="w-full h-auto rounded-lg mb-8">
+                ` : ''}
+                
+                <div class="prose max-w-none">
+                  ${post.content.rendered}
+                </div>
+              </article>
+              
+              <div class="mt-8 pt-6 border-t border-gray-200">
+                <h4 class="text-lg font-bold mb-4">Comentários</h4>
+                <div id="comments-container">
+                  <p class="text-gray-500">Comentários serão carregados aqui.</p>
+                </div>
+              </div>
+            </div>
+          `;
+          
+          // Add to DOM
+          document.body.appendChild(modal);
+          document.body.style.overflow = 'hidden';
+          
+          // Close modal handler
+          modal.querySelector('button').addEventListener('click', () => {
+            document.body.removeChild(modal);
+            document.body.style.overflow = '';
+          });
+          
+          // Fetch comments
+          if (post._links?.replies) {
+            fetch(post._links.replies[0].href)
+              .then(response => response.json())
+              .then(comments => {
+                const commentsContainer = document.getElementById('comments-container');
+                
+                if (comments.length === 0) {
+                  commentsContainer.innerHTML = '<p class="text-gray-500">Nenhum comentário ainda. Seja o primeiro a comentar!</p>';
+                  return;
+                }
+                
+                commentsContainer.innerHTML = '';
+                comments.forEach(comment => {
+                  const commentElement = document.createElement('div');
+                  commentElement.className = 'mb-6 pb-6 border-b border-gray-100 last:border-0';
+                  commentElement.innerHTML = `
+                    <div class="flex items-start">
+                      <div class="flex-shrink-0 mr-4">
+                        <div class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center">
+                          <i class="fas fa-user text-gray-500"></i>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="font-bold">${comment.author_name}</div>
+                        <div class="text-sm text-gray-500 mb-2">${new Date(comment.date).toLocaleDateString('pt-BR')}</div>
+                        <div class="text-gray-700">${comment.content.rendered}</div>
+                      </div>
+                    </div>
+                  `;
+                  commentsContainer.appendChild(commentElement);
+                });
+              })
+              .catch(error => {
+                console.error('Error fetching comments:', error);
+                document.getElementById('comments-container').innerHTML = '<p class="text-red-500">Erro ao carregar comentários.</p>';
+              });
+          }
+        }
+        
+        // Fetch popular posts (based on comments count)
+        fetch(`${apiUrl}/posts?orderby=comment_count&order=desc&per_page=3&_embed`)
+          .then(response => response.json())
+          .then(posts => {
+            const popularContainer = document.getElementById('popular-posts');
+            
+            if (posts.length === 0) {
+              popularContainer.innerHTML = '<p class="text-gray-500">Nenhuma postagem popular.</p>';
+              return;
+            }
+            
+            popularContainer.innerHTML = '';
+            
+            posts.forEach(post => {
+              const popularPost = document.createElement('div');
+              popularPost.className = 'flex items-start';
+              
+              // Featured image thumbnail
+              let thumbnail = '<div class="flex-shrink-0 mr-3 w-16 h-16 bg-gray-200 rounded"></div>';
+              if (post._embedded?.['wp:featuredmedia']?.[0]) {
+                const img = post._embedded['wp:featuredmedia'][0];
+                thumbnail = `
+                  <div class="flex-shrink-0 mr-3 w-16 h-16 bg-gray-200 rounded overflow-hidden">
+                    <img loading="lazy" src="${img.source_url}" alt="${img.alt_text}" class="w-full h-full object-cover">
+                  </div>
+                `;
+              }
+              
+              popularPost.innerHTML = `
+                ${thumbnail}
+                <div>
+                  <h4 class="text-sm font-bold leading-tight mb-1 hover:text-blue-600 transition duration-300">
+                    <a href="#post-${post.id}">${post.title.rendered}</a>
+                  </h4>
+                  <div class="text-xs text-gray-500">${new Date(post.date).toLocaleDateString('pt-BR')}</div>
+                </div>
+              `;
+              
+              // Add click handler
+              popularPost.querySelector(`a[href="#post-${post.id}"]`).addEventListener('click', (e) => {
+                e.preventDefault();
+                showFullPost(post);
+              });
+              
+              popularContainer.appendChild(popularPost);
+            });
+          })
+          .catch(error => {
+            console.error('Error fetching popular posts:', error);
+            document.getElementById('popular-posts').innerHTML = '<p class="text-red-500">Erro ao carregar postagens populares.</p>';
+          });
+      });
+    </script>
+  </body>
+</html>
