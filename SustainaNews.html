@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SustainaNews | Turismo em Florianópolis e Santa Catarina</title>
     <meta name="description" content="As melhores notícias e guias de turismo em Florianópolis e Santa Catarina. Praias, ecoturismo, gastronomia e cultura." />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <link rel="icon" href="favicon.ico" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"></noscript>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       :root {
@@ -423,7 +424,7 @@
             const img = post._embedded['wp:featuredmedia'][0];
             featuredImage = `
               <div class="mb-6 overflow-hidden rounded-lg">
-                <img src="${img.source_url}" alt="${img.alt_text}" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
+                <img loading="lazy" src="${img.source_url}" alt="${img.alt_text}" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
               </div>
             `;
           }
@@ -449,10 +450,4 @@
               <a href="#post-${post.id}" class="block group">
                 ${featuredImage}
                 <h3 class="text-xl font-bold mb-2 group-hover:text-blue-600 transition duration-300">${post.title.rendered}</h3>
-                <div class="text-sm text-gray-500 mb-3">${postDate}</div>
-                <div class="text-gray-700 line-clamp-2">${post.excerpt.rendered}</div>
-                ${categories}
-              </a>
-            `;
-          } else {
-            /
+                <div 
