@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SustainaNews | Turismo em Florianópolis e Santa Catarina</title>
+    <meta name="description" content="As melhores notícias e guias de turismo em Florianópolis e Santa Catarina. Praias, ecoturismo, gastronomia e cultura." />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="icon" href="favicon.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --primary: #2b6cb0;
+        --primary-dark: #2c5282;
+        --secondary: #ecc94b;
+      }
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        color: #2d3748;
+      }
+      
+      h1, h2, h3, h4 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+      }
+      
+      .article-content p {
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+      }
+      
+      .article-content img {
+        max-width: 100%;
+        height: auto;
+        margin: 2rem 0;
+        border-radius: 8px;
+      }
+      
+      .hero-image {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+        background-size: cover;
+        background-position: center;
+      }
+      
+      .category-badge {
+        transition: all 0.3s ease;
+      }
+      
+      .category-badge:hover {
+        transform: translateY(-2px);
+      }
+      
+      .loading-spinner {
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+      <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:py-4">
+        <a href="index.html" class="text-2xl font-bold text-blue-800">Sustaina News</a>
+        
+        <!-- Botão Mobile -->
+        <button id="menu-btn" class="md:hidden focus:outline-none">
+          <div class="hamburger space-y-1.5 transition-all duration-300">
+            <span class="block w-6 h-0.5 bg-blue-800"></span>
+            <span class="block w-6 h-0.5 bg-blue-800"></span>
+            <span class="block w-6 h-0.5 bg-blue-800"></span>
+          </div>
+        </button>
+
+        <!-- Menu Desktop -->
+        <nav id="menu" class="hidden md:flex gap-6 text-blue-800 font-medium">
+          <a href="index.html" class="hover:text-blue-600">Início</a>
+          <a href="#destaques" class="hover:text-blue-600">Destaques</a>
+          <a href="#categorias" class="hover:text-blue-600">Categorias</a>
+          <a href="#contato" class="hover:text-blue-600">Contato</a>
+        </nav>
+        
+        <!-- Search Icon -->
+        <button id="search-btn" class="ml-4 text-blue-800 hover:text-blue-600">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="md:hidden hidden flex-col px-4 pb-4 bg-white shadow-lg">
+        <a href="index.html" class="py-2 text-blue-800 font-medium hover:text-blue-600">Início</a>
+        <a href="#destaques" class="py-2 text-blue-800 font-medium hover:text-blue-600">Destaques</a>
+        <a href="#categorias" class="py-2 text-blue-800 font-medium hover:text-blue-600">Categorias</a>
+        <a href="#contato" class="py-2 text-blue-800 font-medium hover:text-blue-600">Contato</a>
+      </div>
+      
+      <!-- Search Bar -->
+      <div id="search-bar" class="hidden px-4 py-3 bg-gray-100">
+        <div class="max-w-7xl mx-auto flex">
+          <input type="text" placeholder="Buscar notícias..." class="flex-grow px-4 py-2 rounded-l border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <button class="px-4 py-2 bg-blue-800 text-white rounded-r hover:bg-blue-700">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Espaço para compensar header fixo -->
+    <div class="h-20"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-image h-96 flex items-center justify-center text-white">
+      <div class="text-center px-4">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Turismo em Florianópolis e Santa Catarina</h1>
+        <p class="text-xl md:text-2xl mb-6">Descubra os melhores destinos, praias e experiências na Ilha da Magia</p>
+        <a href="#posts" class="inline-block px-6 py-3 bg-yellow-400 text-blue-900 font-bold rounded hover:bg-yellow-300 transition duration-300">
+          Ver últimas notícias
+        </a>
+      </div>
+    </section>
+
+    <!-- Destaques Section -->
+    <section id="destaques" class="py-12 bg-white">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8 text-blue-800">Destaques</h2>
+        <div id="featured-posts" class="grid md:grid-cols-3 gap-8">
+          <!-- Featured posts will be loaded here -->
+          <div class="flex justify-center items-center py-12">
+            <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-800 loading-spinner"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-8">
+      <!-- Posts Column -->
+      <div class="md:col-span-2">
+        <h2 id="posts" class="text-2xl font-bold mb-6 text-blue-800 border-b pb-2">Últimas Notícias</h2>
+        <div id="posts-container">
+          <!-- Posts will be loaded here -->
+          <div class="flex justify-center items-center py-12">
+            <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-800 loading-spinner"></div>
+          </div>
+        </div>
+        <div id="load-more-container" class="text-center mt-8 hidden">
+          <button id="load-more" class="px-6 py-3 bg-blue-800 text-white rounded hover:bg-blue-700 transition duration-300">
+            Carregar mais notícias
+          </button>
+        </div>
+      </div>
+      
+      <!-- Sidebar -->
+      <div class="md:col-span-1">
+        <!-- Categories -->
+        <div id="categorias" class="bg-white p-6 rounded-lg shadow-md mb-8">
+          <h3 class="text-xl font-bold mb-4 text-blue-800 border-b pb-2">Categorias</h3>
+          <div id="categories-list" class="space-y-2">
+            <!-- Categories will be loaded here -->
+            <div class="flex justify-center items-center py-8">
+              <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-800 loading-spinner"></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Newsletter -->
+        <div class="bg-blue-50 p-6 rounded-lg shadow-md mb-8">
+          <h3 class="text-xl font-bold mb-4 text-blue-800">Newsletter</h3>
+          <p class="mb-4">Receba as melhores notícias de turismo diretamente no seu email.</p>
+          <form class="space-y-3">
+            <input type="text" placeholder="Seu nome" class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <input type="email" placeholder="Seu email" class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button type="submit" class="w-full px-4 py-2 bg-blue-800 text-white rounded hover:bg-blue-700 transition duration-300">Assinar</button>
+          </form>
+        </div>
+        
+        <!-- Popular Posts -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-4 text-blue-800 border-b pb-2">Mais Lidas</h3>
+          <div id="popular-posts" class="space-y-4">
+            <!-- Popular posts will be loaded here -->
+            <div class="flex justify-center items-center py-8">
+              <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-800 loading-spinner"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8">
+        <div>
+          <h4 class="text-xl font-bold mb-4">SustainaTrip Turismo</h4>
+          <p class="mb-4">O seu guia de turismo em Florianópolis e Santa Catarina.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-xl font-bold mb-4">Links Rápidos</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-yellow-400">Início</a></li>
+            <li><a href="#" class="hover:text-yellow-400">Sobre Nós</a></li>
+            <li><a href="#" class="hover:text-yellow-400">Notícias</a></li>
+            <li><a href="#" class="hover:text-yellow-400">Contato</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-xl font-bold mb-4">Categorias</h4>
+          <ul id="footer-categories" class="space-y-2">
+            <!-- Categories will be loaded here -->
+            <li><a href="#" class="hover:text-yellow-400">Carregando...</a></li>
+          </ul>
+        </div>
+        
+        <div id="contato">
+          <h4 class="text-xl font-bold mb-4">Contato</h4>
+          <address class="not-italic">
+            <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> Florianópolis, SC</p>
+            <p class="mb-2"><i class="fas fa-phone mr-2"></i> (48) 98874-2011</p>
+            <p class="mb-2"><i class="fas fa-envelope mr-2"></i> contato@sustainatrip.tur.br</p>
+          </address>
+        </div>
+      </div>
+      
+      <div class="max-w-7xl mx-auto px-4 pt-8 mt-8 border-t border-blue-800 text-center">
+        <p>© <span id="year"></span> Sustaina Trip Turismo. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      // Menu mobile toggle
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        menuBtn.querySelector('.hamburger').classList.toggle('rotate-90');
+      });
+      
+      // Search toggle
+      const searchBtn = document.getElementById('search-btn');
+      const searchBar = document.getElementById('search-bar');
+      
+      searchBtn.addEventListener('click', () => {
+        searchBar.classList.toggle('hidden');
+      });
+      
+      // Current year
+      document.getElementById('year').textContent = new Date().getFullYear();
+      
+      // WordPress API integration
+      document.addEventListener('DOMContentLoaded', function() {
+        const apiUrl = 'https://public-api.wordpress.com/wp/v2/sites/news.sustainatrip.tur.br'; // Replace with your WordPress API URL
+        let currentPage = 1;
+        
+        // Fetch categories
+        fetch(`${apiUrl}/categories?per_page=10`)
+          .then(response => response.json())
+          .then(categories => {
+            const categoriesList = document.getElementById('categories-list');
+            const footerCategories = document.getElementById('footer-categories');
+            
+            categoriesList.innerHTML = '';
+            footerCategories.innerHTML = '';
+            
+            categories.forEach(category => {
+              if (category.count > 0) {
+                // Sidebar categories
+                const categoryItem = document.createElement('a');
+                categoryItem.href = `#category-${category.id}`;
+                categoryItem.className = 'block py-2 px-3 bg-blue-100 text-blue-800 rounded hover:bg-blue-200 transition duration-300 category-badge';
+                categoryItem.textContent = `${category.name} (${category.count})`;
+                categoryItem.onclick = (e) => {
+                  e.preventDefault();
+                  filterPostsByCategory(category.id);
+                };
+                categoriesList.appendChild(categoryItem);
+                
+                // Footer categories
+                const footerCategoryItem = document.createElement('li');
+                const footerCategoryLink = document.createElement('a');
+                footerCategoryLink.href = `#category-${category.id}`;
+                footerCategoryLink.className = 'hover:text-yellow-400';
+                footerCategoryLink.textContent = category.name;
+                footerCategoryLink.onclick = (e) => {
+                  e.preventDefault();
+                  filterPostsByCategory(category.id);
+                };
+                footerCategoryItem.appendChild(footerCategoryLink);
+                footerCategories.appendChild(footerCategoryItem);
+              }
+            });
+          })
+          .catch(error => {
+            console.error('Error fetching categories:', error);
+            document.getElementById('categories-list').innerHTML = '<p class="text-red-600">Erro ao carregar categorias.</p>';
+          });
+        
+        // Fetch featured posts (sticky posts)
+        fetch(`${apiUrl}/posts?sticky=true&per_page=3&_embed`)
+          .then(response => response.json())
+          .then(posts => {
+            const featuredContainer = document.getElementById('featured-posts');
+            
+            if (posts.length === 0) {
+              featuredContainer.innerHTML = '<p class="col-span-3 text-center text-gray-600">Nenhum destaque encontrado.</p>';
+              return;
+            }
+            
+            featuredContainer.innerHTML = '';
+            
+            posts.forEach(post => {
+              const featuredPost = createPostCard(post, true);
+              featuredContainer.appendChild(featuredPost);
+            });
+          })
+          .catch(error => {
+            console.error('Error fetching featured posts:', error);
+            document.getElementById('featured-posts').innerHTML = '<p class="col-span-3 text-center text-red-600">Erro ao carregar destaques.</p>';
+          });
+        
+        // Fetch initial posts
+        fetchPosts(currentPage);
+        
+        // Load more posts
+        document.getElementById('load-more')?.addEventListener('click', () => {
+          currentPage++;
+          fetchPosts(currentPage);
+        });
+        
+        // Function to fetch posts
+        function fetchPosts(page) {
+          fetch(`${apiUrl}/posts?page=${page}&per_page=5&_embed`)
+            .then(response => {
+              const totalPages = response.headers.get('X-WP-TotalPages');
+              if (page >= totalPages) {
+                document.getElementById('load-more-container').classList.add('hidden');
+              } else {
+                document.getElementById('load-more-container').classList.remove('hidden');
+              }
+              return response.json();
+            })
+            .then(posts => {
+              const postsContainer = page === 1 
+                ? document.getElementById('posts-container') 
+                : document.getElementById('posts-container');
+              
+              if (page === 1) {
+                postsContainer.innerHTML = '';
+              }
+              
+              if (posts.length === 0 && page === 1) {
+                postsContainer.innerHTML = '<p class="text-center text-gray-600">Nenhuma notícia encontrada.</p>';
+                return;
+              }
+              
+              posts.forEach(post => {
+                const postElement = createPostCard(post);
+                postsContainer.appendChild(postElement);
+              });
+              
+              // Show loading spinner while loading
+              document.querySelectorAll('.loading-spinner').forEach(el => {
+                el.style.display = 'none';
+              });
+            })
+            .catch(error => {
+              console.error('Error fetching posts:', error);
+              document.getElementById('posts-container').innerHTML = '<p class="text-center text-red-600">Erro ao carregar notícias.</p>';
+            });
+        }
+        
+        // Function to filter posts by category
+        function filterPostsByCategory(categoryId) {
+          fetch(`${apiUrl}/posts?categories=${categoryId}&_embed`)
+            .then(response => response.json())
+            .then(posts => {
+              const postsContainer = document.getElementById('posts-container');
+              postsContainer.innerHTML = '';
+              
+              if (posts.length === 0) {
+                postsContainer.innerHTML = '<p class="text-center text-gray-600">Nenhuma notícia nesta categoria.</p>';
+                return;
+              }
+              
+              posts.forEach(post => {
+                const postElement = createPostCard(post);
+                postsContainer.appendChild(postElement);
+              });
+              
+              // Hide load more button when filtering
+              document.getElementById('load-more-container').classList.add('hidden');
+              
+              // Scroll to posts
+              document.getElementById('posts').scrollIntoView({ behavior: 'smooth' });
+            })
+            .catch(error => {
+              console.error('Error filtering posts:', error);
+              document.getElementById('posts-container').innerHTML = '<p class="text-center text-red-600">Erro ao filtrar notícias.</p>';
+            });
+        }
+        
+        // Function to create post card
+        function createPostCard(post, isFeatured = false) {
+          const postElement = document.createElement('article');
+          postElement.className = `mb-10 pb-8 ${!isFeatured ? 'border-b border-gray-200' : ''}`;
+          
+          // Featured image
+          let featuredImage = '';
+          if (post._embedded?.['wp:featuredmedia']?.[0]) {
+            const img = post._embedded['wp:featuredmedia'][0];
+            featuredImage = `
+              <div class="mb-6 overflow-hidden rounded-lg">
+                <img src="${img.source_url}" alt="${img.alt_text}" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
+              </div>
+            `;
+          }
+          
+          // Categories
+          let categories = '';
+          if (post._embedded?.['wp:term']?.[0]) {
+            categories = post._embedded['wp:term'][0].map(cat => {
+              return `<span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">${cat.name}</span>`;
+            }).join('');
+          }
+          
+          // Date
+          const postDate = new Date(post.date).toLocaleDateString('pt-BR', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+          });
+          
+          if (isFeatured) {
+            // Featured post layout
+            postElement.innerHTML = `
+              <a href="#post-${post.id}" class="block group">
+                ${featuredImage}
+                <h3 class="text-xl font-bold mb-2 group-hover:text-blue-600 transition duration-300">${post.title.rendered}</h3>
+                <div class="text-sm text-gray-500 mb-3">${postDate}</div>
+                <div class="text-gray-700 line-clamp-2">${post.excerpt.rendered}</div>
+                ${categories}
+              </a>
+            `;
+          } else {
+            /
