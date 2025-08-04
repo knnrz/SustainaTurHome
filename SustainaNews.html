@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SustainaNews | Turismo em Florianópolis e Santa Catarina</title>
-    <meta name="description" content="As melhores notícias e guias de turismo em Florianópolis e Santa Catarina. Praias, ecoturismo, gastronomia e cultura." />
+    <title>EcoLog — O Blog da SustainaTrip | Turismo em Florianópolis e Santa Catarina</title>
+    <meta name="description" content="Descubra o EcoLog, o blog da SustainaTrip: viagens conscientes, dicas ecológicas e reflexões sobre um turismo que transforma o mundo. o turismo em Florianópolis e Santa Catarina. Praias, ecoturismo, gastronomia e cultura." />
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <link rel="icon" href="favicon.ico" />
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -67,7 +67,7 @@
   <body class="bg-gray-50">
     <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
       <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:py-4">
-        <a href="index.html" class="text-2xl font-bold text-blue-800">Sustaina News</a>
+        <a href="index.html" class="text-2xl font-bold text-blue-800">SustainaTrip Blog</a>
         
         <!-- Botão Mobile -->
         <button id="menu-btn" class="md:hidden focus:outline-none">
@@ -103,7 +103,7 @@
       <!-- Search Bar -->
       <div id="search-bar" class="hidden px-4 py-3 bg-gray-100">
         <div class="max-w-7xl mx-auto flex">
-          <input type="text" placeholder="Buscar notícias..." class="flex-grow px-4 py-2 rounded-l border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <input type="text" placeholder="Buscar artigos..." class="flex-grow px-4 py-2 rounded-l border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
           <button class="px-4 py-2 bg-blue-800 text-white rounded-r hover:bg-blue-700">
             <i class="fas fa-search"></i>
           </button>
@@ -120,7 +120,7 @@
         <h1 class="text-4xl md:text-5xl font-bold mb-4">Turismo em Florianópolis e Santa Catarina</h1>
         <p class="text-xl md:text-2xl mb-6">Descubra os melhores destinos, praias e experiências na Ilha da Magia</p>
         <a href="#posts" class="inline-block px-6 py-3 bg-yellow-400 text-blue-900 font-bold rounded hover:bg-yellow-300 transition duration-300">
-          Ver últimas notícias
+          Ver últimos Artigos 
         </a>
       </div>
     </section>
@@ -142,7 +142,7 @@
     <main class="max-w-7xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-8">
       <!-- Posts Column -->
       <div class="md:col-span-2">
-        <h2 id="posts" class="text-2xl font-bold mb-6 text-blue-800 border-b pb-2">Últimas Notícias</h2>
+        <h2 id="posts" class="text-2xl font-bold mb-6 text-blue-800 border-b pb-2">Últimos Artigos</h2>
         <div id="posts-container">
           <!-- Posts will be loaded here -->
           <div class="flex justify-center items-center py-12">
@@ -151,7 +151,7 @@
         </div>
         <div id="load-more-container" class="text-center mt-8 hidden">
           <button id="load-more" class="px-6 py-3 bg-blue-800 text-white rounded hover:bg-blue-700 transition duration-300">
-            Carregar mais notícias
+            Carregar mais artigos 
           </button>
         </div>
       </div>
@@ -211,7 +211,7 @@
           <ul class="space-y-2">
             <li><a href="#" class="hover:text-yellow-400">Início</a></li>
             <li><a href="#" class="hover:text-yellow-400">Sobre Nós</a></li>
-            <li><a href="#" class="hover:text-yellow-400">Notícias</a></li>
+            <li><a href="#" class="hover:text-yellow-400">Artigos</a></li>
             <li><a href="#" class="hover:text-yellow-400">Contato</a></li>
           </ul>
         </div>
@@ -263,7 +263,7 @@
       
       // WordPress API integration
       document.addEventListener('DOMContentLoaded', function() {
-        const apiUrl = 'https://public-api.wordpress.com/wp/v2/sites/news.sustainatrip.tur.br'; // Replace with your WordPress API URL
+        const apiUrl = 'https://public-api.wordpress.com/wp/v2/sites/blog.sustainatrip.tur.br'; // Replace with your WordPress API URL
         let currentPage = 1;
         
         // Fetch categories
