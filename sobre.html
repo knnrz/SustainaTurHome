@@ -3,61 +3,369 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sobre - SustainaTrip Turismo</title>
+
+  <title>Sobre • SustainaTrip Turismo</title>
+
+  <meta
+    name="description"
+    content="Conheça a essência da SustainaTrip Turismo. Experiências conscientes, turismo regenerativo e conexões autênticas em Florianópolis."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700&display=swap"
+    rel="stylesheet"
+  />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
     body {
-      font-family: "Helvetica Neue", sans-serif;
-      line-height: 1.6;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-      color: #333;
+      font-family: "Inter", sans-serif;
     }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem;
+
+    .title-font {
+      font-family: "Merriweather", serif;
     }
-    h1, h2 {
-      color: #2c6e49;
-    }
-    .highlight {
-      background-color: #e2f0d9;
-      padding: 0.5rem;
-      border-left: 4px solid #2c6e49;
-      margin: 1rem 0;
-    }
-    a {
-      color: #2c6e49;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
-<body>
-  <div class="container">
-    <h1>Sobre Mim</h1>
-    <p>Sou Kenner, agente de turismo, criador de conteúdo e apaixonado por experiências transformadoras. Trabalho de forma remota, conectando viajantes conscientes a roteiros que curam, inspiram e deixam um legado.</p>
-    <p>Com olhar sensível e empatia pelo viajante moderno, crio roteiros autorais que integram natureza, cultura local e propósito. Acredito que viajar pode ser uma ponte entre o bem viver e a regeneração coletiva.</p>
 
-    <h2>SustainaTrip Turismo</h2>
-    <p><strong>SustainaTrip</strong> é mais do que uma agência — é um movimento. Uma proposta de turismo regenerativo, afetivo e conectado com os ciclos da Terra. Atuamos com foco em:</p>
+<body class="bg-white text-zinc-900 overflow-x-hidden">
 
-    <div class="highlight">
-      🌿 Turismo de base comunitária, com valorização de saberes ancestrais e culturas tradicionais.<br>
-      ✨ Roteiros imersivos com eixos temáticos emocionais: cura, reconexão, reinvenção, solitude criativa.<br>
-      👣 Experiências sensoriais que tocam os 5 sentidos e despertam presença.<br>
-      🔄 Sazonalidade e respeito aos ritmos da natureza (ex: Rituais de Outono, Jornadas da Primavera).<br>
-      💛 Bem-estar integral, rodas de conversa, espiritualidade laica e autenticidade nas trocas.
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-zinc-100">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <a
+        href="index.html"
+        class="text-2xl font-bold tracking-tight text-emerald-700"
+      >
+        SustainaTrip
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-700">
+
+        <a href="index.html" class="hover:text-emerald-700 transition">
+          Início
+        </a>
+
+        <a href="blog.html" class="hover:text-emerald-700 transition">
+          Blog
+        </a>
+
+        <a
+          href="https://www.sustainatrip.tur.br/"
+          class="hover:text-emerald-700 transition"
+        >
+          Experiências
+        </a>
+
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- SPACING -->
+  <div class="h-20"></div>
+
+  <!-- HERO -->
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+
+    <img
+      src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2000&auto=format&fit=crop"
+      alt="Natureza"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+
+    <div class="absolute inset-0 bg-black/55"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-6 py-24 text-white">
+
+      <span
+        class="inline-flex mb-6 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm backdrop-blur-md"
+      >
+        Turismo consciente • Experiências autênticas
+      </span>
+
+      <h1
+        class="title-font text-5xl md:text-7xl leading-tight"
+      >
+        Viajar pode ser mais do que visitar lugares.
+      </h1>
+
+      <p
+        class="mt-8 text-lg md:text-2xl leading-relaxed max-w-3xl text-zinc-200"
+      >
+        A SustainaTrip nasceu da vontade de criar experiências que conectam pessoas,
+        natureza e histórias reais — com simplicidade, presença e propósito.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-4">
+
+        <a
+          href="https://wa.me/5548999999999"
+          class="bg-white text-zinc-900 px-8 py-4 rounded-2xl font-semibold hover:scale-105 transition"
+        >
+          Falar no WhatsApp
+        </a>
+
+        <a
+          href="#sobre"
+          class="border border-white/20 bg-white/10 backdrop-blur-md px-8 py-4 rounded-2xl font-semibold hover:bg-white/20 transition"
+        >
+          Conhecer nossa essência
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="py-28 px-6">
+
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+
+      <div>
+
+        <p class="text-sm uppercase tracking-[0.25em] text-emerald-600 mb-4">
+          Sobre a SustainaTrip
+        </p>
+
+        <h2 class="title-font text-4xl md:text-5xl leading-tight">
+          Criamos viagens que deixam memórias — não apenas fotos.
+        </h2>
+
+        <div class="mt-8 space-y-6 text-lg leading-relaxed text-zinc-600">
+
+          <p>
+            Sou Kenner, criador da SustainaTrip Turismo.
+            Trabalho conectando viajantes a experiências mais humanas,
+            conscientes e transformadoras.
+          </p>
+
+          <p>
+            Acredito que viajar pode ser uma forma de desacelerar,
+            respirar fundo, reconectar-se com a natureza
+            e viver encontros que realmente fazem sentido.
+          </p>
+
+          <p>
+            Nosso trabalho nasce da simplicidade:
+            valorizar pessoas locais, respeitar os ritmos da natureza
+            e criar roteiros com alma.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="relative">
+
+        <img
+          src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=1400&auto=format&fit=crop"
+          alt="Experiências"
+          class="rounded-[40px] shadow-2xl"
+        />
+
+        <div
+          class="absolute -bottom-10 -left-10 bg-white rounded-3xl shadow-xl p-8 max-w-xs border border-zinc-100"
+        >
+
+          <p class="text-4xl mb-3">
+            🌿
+          </p>
+
+          <h3 class="font-bold text-xl">
+            Turismo com presença
+          </h3>
+
+          <p class="mt-3 text-zinc-600 leading-relaxed">
+            Menos correria.
+            Mais conexão, natureza e experiências genuínas.
+          </p>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <p>Nossos roteiros fogem do turismo de massa e priorizam impacto positivo real: para quem viaja e para quem acolhe. Trabalhamos com criatividade e baixo orçamento, valorizando parcerias locais e projetos com alma.</p>
+  </section>
 
-    <p>Se você sente que é hora de viajar com mais consciência, presença e intenção — <strong>vem com a gente.</strong></p>
+  <!-- EXPERIÊNCIAS -->
+  <section class="bg-zinc-50 py-28 px-6">
 
-    <p><a href="mailto:contato@sustainatrip.tur.br">📩 contato@sustainatrip.tur.br</a></p>
-  </div>
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center max-w-3xl mx-auto">
+
+        <p class="text-sm uppercase tracking-[0.25em] text-emerald-600 mb-4">
+          Nossa essência
+        </p>
+
+        <h2 class="title-font text-4xl md:text-5xl leading-tight">
+          Experiências pensadas para sentir, não apenas consumir.
+        </h2>
+
+      </div>
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8 mt-20">
+
+        <div class="bg-white rounded-3xl p-8 shadow-sm border border-zinc-100">
+          <div class="text-4xl mb-5">🌊</div>
+
+          <h3 class="font-bold text-2xl">
+            Natureza
+          </h3>
+
+          <p class="mt-4 text-zinc-600 leading-relaxed">
+            Praias, trilhas, ilhas e paisagens que convidam ao silêncio e à contemplação.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-8 shadow-sm border border-zinc-100">
+          <div class="text-4xl mb-5">🤝</div>
+
+          <h3 class="font-bold text-2xl">
+            Comunidade
+          </h3>
+
+          <p class="mt-4 text-zinc-600 leading-relaxed">
+            Valorizamos pessoas locais, histórias reais e conexões humanas autênticas.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-8 shadow-sm border border-zinc-100">
+          <div class="text-4xl mb-5">✨</div>
+
+          <h3 class="font-bold text-2xl">
+            Presença
+          </h3>
+
+          <p class="mt-4 text-zinc-600 leading-relaxed">
+            Experiências que desaceleram o olhar e despertam novas formas de viver.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-8 shadow-sm border border-zinc-100">
+          <div class="text-4xl mb-5">💛</div>
+
+          <h3 class="font-bold text-2xl">
+            Simplicidade
+          </h3>
+
+          <p class="mt-4 text-zinc-600 leading-relaxed">
+            Não buscamos luxo artificial — buscamos experiências com verdade.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+  <section class="relative overflow-hidden py-28 px-6">
+
+    <img
+      src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?q=80&w=2000&auto=format&fit=crop"
+      alt="Viagem"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+
+    <div class="absolute inset-0 bg-black/60"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto text-center text-white">
+
+      <h2 class="title-font text-4xl md:text-6xl leading-tight">
+        Talvez a melhor viagem seja aquela que transforma você por dentro.
+      </h2>
+
+      <p class="mt-8 text-xl leading-relaxed text-zinc-200">
+        Se você procura viagens mais conscientes, humanas e memoráveis,
+        será um prazer caminhar essa jornada com você.
+      </p>
+
+      <div class="mt-12 flex flex-wrap justify-center gap-4">
+
+        <a
+          href="mailto:contato@sustainatrip.tur.br"
+          class="bg-white text-zinc-900 px-8 py-4 rounded-2xl font-semibold hover:scale-105 transition"
+        >
+          Entrar em contato
+        </a>
+
+        <a
+          href="blog.html"
+          class="border border-white/20 bg-white/10 backdrop-blur-md px-8 py-4 rounded-2xl font-semibold hover:bg-white/20 transition"
+        >
+          Ler o blog
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-zinc-100">
+
+    <div
+      class="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6"
+    >
+
+      <div>
+        <h3 class="text-xl font-bold">
+          SustainaTrip Turismo
+        </h3>
+
+        <p class="mt-2 text-sm text-zinc-500">
+          Florianópolis • Turismo consciente • Experiências autênticas
+        </p>
+      </div>
+
+      <div class="flex items-center gap-6 text-sm text-zinc-600">
+
+        <a href="#" class="hover:text-emerald-700 transition">
+          Instagram
+        </a>
+
+        <a href="#" class="hover:text-emerald-700 transition">
+          TikTok
+        </a>
+
+        <a href="#" class="hover:text-emerald-700 transition">
+          YouTube
+        </a>
+
+        <a href="#" class="hover:text-emerald-700 transition">
+          WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="border-t border-zinc-100 py-4 text-center text-sm text-zinc-500">
+      © <span id="year"></span> SustainaTrip Turismo. Todos os direitos reservados.
+    </div>
+
+  </footer>
+
+  <!-- YEAR -->
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
 </body>
 </html>
