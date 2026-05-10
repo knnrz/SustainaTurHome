@@ -3,76 +3,299 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Sustaina Trip Turismo</title>
-    <meta name="description" content="Ecoturismo, conexão com a natureza e experiências transformadoras em Florianópolis." />
+
+    <meta
+      name="description"
+      content="Ecoturismo, conexão com a natureza e experiências transformadoras em Florianópolis."
+    />
+
     <link rel="stylesheet" href="css/blog-style.css" />
     <link rel="stylesheet" href="dist/output.css" />
     <link rel="icon" href="favicon.ico" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Merriweather:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 font-sans">
 
-    <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:py-4">
-    <a href="index.html" class="text-2xl font-bold text-emerald-700">Sustaina Trip</a>
-    
-    <!-- Botão Mobile -->
-    <button id="menu-btn" class="md:hidden focus:outline-none">
-      <div class="hamburger space-y-1.5 transition-all duration-300">
-        <span class="block w-6 h-0.5 bg-emerald-700"></span>
-        <span class="block w-6 h-0.5 bg-emerald-700"></span>
-        <span class="block w-6 h-0.5 bg-emerald-700"></span>
+  <body class="bg-white text-gray-900 font-sans">
+
+    <!-- HEADER -->
+    <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-lg shadow-sm z-50 border-b border-gray-100">
+      <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+
+        <a
+          href="index.html"
+          class="text-2xl font-bold text-emerald-700 tracking-tight"
+        >
+          Sustaina Trip
+        </a>
+
+        <!-- BOTÃO MOBILE -->
+        <button id="menu-btn" class="md:hidden focus:outline-none">
+          <div class="space-y-1.5">
+            <span class="block w-6 h-0.5 bg-emerald-700"></span>
+            <span class="block w-6 h-0.5 bg-emerald-700"></span>
+            <span class="block w-6 h-0.5 bg-emerald-700"></span>
+          </div>
+        </button>
+
+        <!-- MENU DESKTOP -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
+          <a href="index.html" class="hover:text-emerald-700 transition">
+            Início
+          </a>
+
+          <a href="sobre.html" class="hover:text-emerald-700 transition">
+            Sobre
+          </a>
+
+          <a
+            href="https://www.sustainatrip.tur.br/"
+            class="hover:text-emerald-700 transition"
+          >
+            Experiências
+          </a>
+        </nav>
       </div>
-    </button>
 
-    <!-- Menu -->
-    <nav id="menu" class="hidden md:flex gap-6 text-emerald-700 font-medium">
-      <a href="index.html">Início</a>
-      <a href="#sobre">Sobre</a>
-      <a href="https://www.sustainatrip.tur.br/">Experiências</a>
-    </nav>
-  </div>
+      <!-- MENU MOBILE -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden flex-col px-4 pb-4 bg-white border-t border-gray-100"
+      >
+        <a href="index.html" class="py-3 text-emerald-700 font-medium">
+          Início
+        </a>
 
-  <!-- Mobile menu -->
-  <div id="mobile-menu" class="md:hidden hidden flex-col px-4 pb-4 bg-white">
-    <a href="blog.html" class="py-2 text-emerald-700 font-medium">Início</a>
-    <a href="sobre.html" class="py-2 text-emerald-700 font-medium">Sobre</a>
-    <a href="https://www.sustainatrip.tur.br/" class="py-2 text-emerald-700 font-medium">Experiências</a>
-  </div>
-</header>
+        <a href="sobre.html" class="py-3 text-emerald-700 font-medium">
+          Sobre
+        </a>
 
-<!-- Espaço para compensar header fixo -->
-<div class="h-20"></div>
+        <a
+          href="https://www.sustainatrip.tur.br/"
+          class="py-3 text-emerald-700 font-medium"
+        >
+          Experiências
+        </a>
+      </div>
+    </header>
 
-<section class="hero-container">
-  <div class="hero-content">
-    <h1>🌿 Bem-vindo ao Blog da <span class="highlight">Sustaina Trip Turismo</span></h1>
-    <p class="slogan">Explorando destinos que curam, conectam e transformam.</p>
-    <a href="#posts" class="cta-button">Ver últimas publicações</a>
-  </div>
-</section>
+    <!-- ESPAÇAMENTO HEADER -->
+    <div class="h-20"></div>
 
-    <main id="posts" class="p-4 max-w-4xl mx-auto grid gap-6 mt-6">
-      <!-- Os posts do WordPress vão ser injetados aqui via JS -->
+    <!-- HERO -->
+    <section
+      class="relative h-[75vh] overflow-hidden flex items-center justify-center"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2000&auto=format&fit=crop"
+        alt="Florianópolis"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+
+      <div class="absolute inset-0 bg-black/50"></div>
+
+      <div class="relative z-10 text-center px-6 max-w-4xl">
+        <span
+          class="inline-flex mb-6 rounded-full border border-white/30 bg-white/10 backdrop-blur-md px-5 py-2 text-sm text-white"
+        >
+          Turismo Sustentável em Florianópolis
+        </span>
+
+        <h1
+          class="text-5xl md:text-7xl font-bold text-white leading-tight"
+        >
+          Explore Floripa com propósito.
+        </h1>
+
+        <p
+          class="mt-6 text-lg md:text-xl text-gray-200 leading-relaxed"
+        >
+          Ecoturismo, experiências autênticas, praias paradisíacas e aventuras
+          inesquecíveis pela ilha da magia.
+        </p>
+
+        <a
+          href="#posts"
+          class="inline-block mt-10 bg-white text-gray-900 px-8 py-4 rounded-2xl font-semibold hover:scale-105 transition"
+        >
+          Ver últimas publicações
+        </a>
+      </div>
+    </section>
+
+    <!-- POSTS -->
+    <main
+      id="posts"
+      class="max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-2 xl:grid-cols-3 gap-8"
+    >
+      <!-- POSTS DO BLOGGER -->
     </main>
 
-    <footer class="mt-12 p-4 bg-gray-100 dark:bg-gray-800 text-center text-sm text-gray-600 dark:text-gray-300">
-      © <span id="year"></span> Sustaina Trip Turismo. Todos os direitos reservados.
+    <!-- FOOTER -->
+    <footer class="bg-gray-50 border-t border-gray-200 mt-20">
 
-<!-- voltar ao blog-->
+      <div
+        class="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6"
+      >
+        <div>
+          <h3 class="text-xl font-bold text-gray-900">
+            Sustaina Trip Turismo
+          </h3>
 
-<a href="blog.html" class="btn-voltar" title="Voltar ao blog">← Voltar</a>
+          <p class="mt-2 text-sm text-gray-500">
+            Turismo sustentável em Florianópolis.
+          </p>
+        </div>
 
+        <div class="flex items-center gap-6 text-sm text-gray-600">
+          <a href="#" class="hover:text-emerald-700 transition">
+            Instagram
+          </a>
+
+          <a href="#" class="hover:text-emerald-700 transition">
+            TikTok
+          </a>
+
+          <a href="#" class="hover:text-emerald-700 transition">
+            YouTube
+          </a>
+
+          <a href="#" class="hover:text-emerald-700 transition">
+            WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-200 py-4 text-center text-sm text-gray-500">
+        © <span id="year"></span> Sustaina Trip Turismo. Todos os direitos reservados.
+      </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="js/index.js" type="module"></script>
+    <!-- MENU MOBILE SCRIPT -->
     <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
     </script>
-<div class="bg-black-500 text-white text-center p-2">
-  Desenvolvido por Kenner Vásquez 
-</div>
+
+    <!-- ANO AUTOMÁTICO -->
+    <script>
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
+    </script>
+
+    <!-- BLOGGER FEED -->
+    <script>
+      async function carregarPosts() {
+        const container = document.getElementById("posts");
+
+        try {
+          const response = await fetch(
+            "https://sustainatripturismo.blogspot.com/feeds/posts/default?alt=json"
+          );
+
+          const data = await response.json();
+
+          const posts = data.feed.entry || [];
+
+          container.innerHTML = "";
+
+          posts.reverse().forEach((post) => {
+            const title = post.title.$t;
+
+            const link =
+              post.link.find((l) => l.rel === "alternate").href;
+
+            const content =
+              post.content?.$t || post.summary?.$t || "";
+
+            const tempDiv = document.createElement("div");
+            tempDiv.innerHTML = content;
+
+            const image =
+              tempDiv.querySelector("img")?.src ||
+              "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop";
+
+            const text =
+              tempDiv.textContent.trim().slice(0, 180) + "...";
+
+            const date = new Date(post.published.$t);
+
+            const formattedDate = date.toLocaleDateString("pt-BR", {
+              day: "2-digit",
+              month: "long",
+              year: "numeric",
+            });
+
+            const article = document.createElement("article");
+
+            article.className =
+              "group bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition duration-300";
+
+            article.innerHTML = `
+              <a href="${link}" target="_blank">
+
+                <div class="overflow-hidden">
+                  <img
+                    src="${image}"
+                    alt="${title}"
+                    class="w-full h-72 object-cover group-hover:scale-110 transition duration-700"
+                  />
+                </div>
+
+                <div class="p-6">
+
+                  <p class="text-sm text-emerald-600 font-semibold mb-3">
+                    ${formattedDate}
+                  </p>
+
+                  <h2 class="text-2xl font-bold leading-tight mb-4 group-hover:text-emerald-700 transition">
+                    ${title}
+                  </h2>
+
+                  <p class="text-gray-600 leading-relaxed">
+                    ${text}
+                  </p>
+
+                  <div class="mt-6 inline-flex items-center gap-2 text-emerald-700 font-semibold">
+                    Ler artigo →
+                  </div>
+
+                </div>
+              </a>
+            `;
+
+            container.appendChild(article);
+          });
+        } catch (error) {
+          container.innerHTML = `
+            <div class="col-span-full text-center py-20">
+              <h2 class="text-3xl font-bold mb-4">
+                Não foi possível carregar os artigos.
+              </h2>
+
+              <p class="text-gray-500">
+                Tente novamente mais tarde.
+              </p>
+            </div>
+          `;
+
+          console.error(error);
+        }
+      }
+
+      carregarPosts();
+    </script>
+
   </body>
 </html>
