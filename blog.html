@@ -33,79 +33,60 @@
 
   <body class="bg-white text-gray-900">
 
-    <!-- HEADER -->
-    <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-lg border-b border-gray-100 z-50">
-      <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+   <body class="bg-gray-900 text-white scroll-smooth">
 
-        <a
-          href="index.html"
-          class="text-2xl font-bold text-emerald-700 tracking-tight"
-        >
-          Sustaina Trip
-        </a>
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-black/70 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
 
-        <!-- BOTÃO MOBILE -->
-        <button id="menu-btn" class="md:hidden">
-          <div class="space-y-1.5">
-            <span class="block w-6 h-0.5 bg-emerald-700"></span>
-            <span class="block w-6 h-0.5 bg-emerald-700"></span>
-            <span class="block w-6 h-0.5 bg-emerald-700"></span>
-          </div>
-        </button>
+      <h1 class="text-xl font-bold tracking-widest">
+        Sustaina Trip
+      </h1>
 
-        <!-- MENU DESKTOP -->
-        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
-
-          <a
-            href="index.html"
-            class="hover:text-emerald-700 transition"
-          >
-            Início
-          </a>
-
-          <a
-            href="sobre.html"
-            class="hover:text-emerald-700 transition"
-          >
-            Sobre
-          </a>
-
-          <a
-            href="https://www.sustainatrip.tur.br/"
-            class="hover:text-emerald-700 transition"
-          >
-            Experiências
-          </a>
-
-        </nav>
-      </div>
-
-      <!-- MOBILE MENU -->
-      <div
-        id="mobile-menu"
-        class="hidden md:hidden flex-col px-4 pb-4 bg-white border-t border-gray-100"
+      <!-- Menu Button -->
+      <button
+        id="menu-btn"
+        class="text-2xl md:hidden"
+        aria-label="Abrir menu"
       >
+        ☰
+      </button>
 
-        <a href="index.html" class="py-3 text-emerald-700 font-medium">
-          Início
-        </a>
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex gap-6 text-sm font-medium">
+        <a href="#inicio" class="hover:text-yellow-400 transition">Início</a>
+        <a href="#vivencias" class="hover:text-yellow-400 transition">Experiências</a>
+        <a href="#diferenciais" class="hover:text-yellow-400 transition">Diferenciais</a>
+        <a href="#roteiros" class="hover:text-yellow-400 transition">Passeios Recomendados</a>
+        <a href="../sobre.html" class="hover:text-yellow-400 transition">About</a>
+        <a href="../vitrine.html" class="hover:text-yellow-400 transition">Vitrine life-style</a>
+        <a href="../blog.html" target="_blank" rel="noopener noreferrer" class="hover:text-yellow-400 transition">Blog</a>
 
-        <a href="sobre.html" class="py-3 text-emerald-700 font-medium">
-          Sobre
-        </a>
+        <a href="#cta" class="hover:text-yellow-400 transition">Contato</a>
+      </nav>
+    </div>
 
-        <a
-          href="https://www.sustainatrip.tur.br/"
-          class="py-3 text-emerald-700 font-medium"
-        >
-          Experiências
-        </a>
+    <!-- Mobile Menu -->
+    <nav
+      id="mobile-menu"
+      class="hidden flex-col items-center gap-5 py-6 bg-black/95 md:hidden"
+    >
+      <a href="#inicio">Início</a>
+      <a href="#roteiros">Roteiros</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#recomendo">Recomendo</a>
+      <a href="../sobre.html">about</a>
+      <a href="../vitrine.html">Vitrine</a>
+      <a href="../blog.html" target="_blank" rel="noopener noreferrer">Blog</a>
+      <a href="#cta">Contato</a>
+    </nav>
+  </header>
 
-      </div>
-    </header>
+  <!-- Spacer -->
+  <div class="h-20"></div>
 
-    <!-- ESPAÇO HEADER -->
-    <div class="h-20"></div>
+  <main>
+
 
     <!-- HERO -->
     <section class="relative h-[75vh] overflow-hidden flex items-center justify-center">
