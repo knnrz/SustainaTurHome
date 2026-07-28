@@ -11,6 +11,6 @@ Este repositório guarda com carinho a landing page do nosso projeto - feita à 
 ☕ **Ingredientes especiais** - Café, rebeldia consciente e boas intenções  
 
 Quer mergulhar em nossas reflexões e dicas sustentáveis do mundo real?  
-👉 [Visite nosso blog](https://sustainatrip.tur.br) e vamos conversar!
+👉 [Visite nosso blog](https://blog.sustainatrip.com.br) e vamos conversar!
 
 *"Pequenos passos, grandes mudanças - um código de cada vez."* 💚
