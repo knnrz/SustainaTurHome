@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termos e Políticas | Sustaina Trip Turismo</title>
+  <meta name="description" content="Termos e políticas da Sustaina Trip Turismo. Transparência sobre privacidade, cancelamento e condições gerais dos nossos serviços." />
+  <meta name="theme-color" content="#03060e" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.ico/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.ico/apple-icon-180x180.png" />
+  <link rel="manifest" href="assets/favicon.ico/manifest.json" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..700;1,9..144,200..700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+<style>
+  /* =========================================================
+     BASE
+  ========================================================= */
+  :root {
+    --ink: #03060e;
+    --ink-2: #0a0f0c;
+    --forest: #0f1813;
+    --surface: #141c17;
+    --line: rgba(240, 236, 224, .08);
+    --cream: #f0ece0;
+    --muted: #7a7d78;
+    --sage: #7a9d5f;
+    --gold: #d4a053;
+    --gold-soft: #e8c896;
+    --terra: #c06050;
+
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', system-ui, sans-serif;
+    --ease: cubic-bezier(.22, .61, .36, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  * { margin: 0; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    background: var(--ink);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--gold); color: var(--ink); }
+
+  h1, h2, h3 { font-family: var(--serif); font-weight: 300; letter-spacing: -.02em; line-height: 1.1; }
+
+  a { color: inherit; }
+
+  /* Grão sutil (mantém identidade) */
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    opacity: .035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  /* =========================================================
+     BARRA DE PROGRESSO
+  ========================================================= */
+  .progress {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 2px; z-index: 200;
+    background: rgba(255, 255, 255, .04);
+  }
+  .progress__bar {
+    height: 100%; width: 0;
+    background: linear-gradient(90deg, var(--sage), var(--gold));
+    transition: width .1s linear;
+  }
+
+  /* =========================================================
+     NAV
+  ========================================================= */
+  .nav {
+    position: fixed; top: 2px; left: 0; right: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.15rem clamp(1.25rem, 4vw, 2.75rem);
+    z-index: 100;
+    transition: background .35s, backdrop-filter .35s, border-color .35s;
+    border-bottom: 1px solid transparent;
+  }
+  .nav.is-scrolled {
+    background: rgba(3, 6, 14, .82);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border-bottom-color: var(--line);
+  }
+  .nav__brand {
+    display: flex; align-items: center; gap: .6rem;
+    text-decoration: none;
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+  }
+  .nav__brand img {
+    width: 32px; height: 32px;
+    filter: drop-shadow(0 2px 6px rgba(212, 160, 83, .25));
+  }
+  .nav__links {
+    display: flex; align-items: center; gap: 1.85rem;
+    font-size: .82rem;
+    font-weight: 500;
+  }
+  .nav__links a {
+    text-decoration: none;
+    color: var(--muted);
+    transition: color .2s;
+    position: relative;
+  }
+  .nav__links a:not(.nav__cta):not(.nav__back):hover { color: var(--cream); }
+  .nav__links a:not(.nav__cta):not(.nav__back)::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -5px;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .3s var(--ease);
+  }
+  .nav__links a:not(.nav__cta):not(.nav__back):hover::after { transform: scaleX(1); }
+
+  .nav__back {
+    color: var(--muted);
+    display: inline-flex; align-items: center; gap: .35rem;
+    font-size: .78rem;
+  }
+  .nav__back:hover { color: var(--gold); }
+
+  .nav__cta {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .6rem 1.1rem;
+    background: var(--gold);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: .78rem;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: background .2s, transform .2s;
+  }
+  .nav__cta:hover { background: var(--gold-soft); transform: translateY(-1px); }
+
+  .nav__toggle {
+    display: none;
+    background: none; border: none; color: var(--cream);
+    font-size: 1.35rem; cursor: pointer;
+    padding: .5rem;
+  }
+
+  /* =========================================================
+     HERO
+  ========================================================= */
+  .hero {
+    position: relative;
+    padding: clamp(8rem, 18vh, 12rem) clamp(1.5rem, 6vw, 4rem) clamp(4rem, 8vh, 6rem);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -30%; left: 50%;
+    transform: translateX(-50%);
+    width: 1100px; height: 900px;
+    background: radial-gradient(circle, rgba(212, 160, 83, .10), transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .hero__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .hero__kicker {
+    display: inline-flex; align-items: center; gap: .75rem;
+    font-size: .68rem;
+    letter-spacing: .4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+  }
+  .hero__kicker::before {
+    content: '';
+    width: 32px; height: 1px;
+    background: var(--gold);
+  }
+  .hero__title {
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-weight: 200;
+    letter-spacing: -.04em;
+    line-height: .95;
+    max-width: 12ch;
+    margin-bottom: 1.75rem;
+  }
+  .hero__title em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 300;
+  }
+  .hero__sub {
+    font-family: var(--serif);
+    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(240, 236, 224, .72);
+    max-width: 42ch;
+    line-height: 1.5;
+    margin-bottom: 2.5rem;
+  }
+  .hero__updated {
+    display: inline-flex; align-items: center; gap: .6rem;
+    font-size: .72rem;
+    letter-spacing: .1em;
+    color: var(--muted);
+    padding: .55rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    background: rgba(20, 28, 23, .5);
+  }
+  .hero__updated i { color: var(--sage); font-size: .75rem; }
+
+  /* =========================================================
+     ÍNDICE (navegação rápida)
+  ========================================================= */
+  .index {
+    padding: 0 clamp(1.5rem, 6vw, 4rem) clamp(4rem, 8vh, 6rem);
+  }
+  .index__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .index__label {
+    font-size: .65rem;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+  .index__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  .index__card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform .35s var(--ease), border-color .3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .index__card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity .35s;
+  }
+  .index__card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(212, 160, 83, .3);
+  }
+  .index__card:hover::before { opacity: 1; }
+
+  .index__num {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 200;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: -.03em;
+    flex-shrink: 0;
+    margin-top: .15rem;
+  }
+  .index__info { display: flex; flex-direction: column; }
+  .index__title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: .25rem;
+    line-height: 1.2;
+  }
+  .index__desc {
+    font-size: .8rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* =========================================================
+     CONTEÚDO / DOCUMENTO
+  ========================================================= */
+  .doc-content {
+    padding: 0 clamp(1.5rem, 6vw, 4rem) clamp(5rem, 10vh, 8rem);
+  }
+  .doc-content__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .doc {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: clamp(2rem, 4.5vw, 3.5rem);
+    position: relative;
+    overflow: hidden;
+    scroll-margin-top: 6rem;
+  }
+  .doc::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent 40%);
+    opacity: .5;
+  }
+
+  /* Cabeçalho da seção */
+  .doc__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .doc__header-text {
+    flex: 1;
+    min-width: 0;
+  }
+  .doc__num {
+    display: block;
+    font-family: var(--serif);
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 200;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(212, 160, 83, .55);
+    line-height: 1;
+    letter-spacing: -.04em;
+    margin-bottom: .75rem;
+  }
+  .doc__kicker {
+    font-size: .65rem;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: .85rem;
+    font-weight: 500;
+  }
+  .doc__title {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -.02em;
+    color: var(--cream);
+  }
+  .doc__icon {
+    width: 56px; height: 56px;
+    display: grid; place-items: center;
+    background: rgba(212, 160, 83, .08);
+    color: var(--gold);
+    border: 1px solid rgba(212, 160, 83, .2);
+    border-radius: 14px;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  /* Blocos internos */
+  .doc__body {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .block h3 {
+    font-family: var(--sans);
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: .85rem;
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+  }
+  .block h3::before {
+    content: '';
+    width: 14px; height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+  .block p {
+    color: rgba(240, 236, 224, .82);
+    font-size: .98rem;
+    line-height: 1.8;
+    font-weight: 400;
+  }
+  .block p + p { margin-top: .85rem; }
+  .block strong { color: var(--cream); font-weight: 600; }
+
+  /* =========================================================
+     TIERS DE CANCELAMENTO (visual)
+  ========================================================= */
+  .tiers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: rgba(3, 6, 14, .4);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+  }
+  .tier {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 1.25rem 1rem;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .tier--good {
+    background: rgba(122, 157, 95, .08);
+    border: 1px solid rgba(122, 157, 95, .25);
+  }
+  .tier--mid {
+    background: rgba(212, 160, 83, .08);
+    border: 1px solid rgba(212, 160, 83, .3);
+  }
+  .tier--none {
+    background: rgba(192, 96, 80, .08);
+    border: 1px solid rgba(192, 96, 80, .3);
+  }
+  .tier__pct {
+    font-family: var(--serif);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.03em;
+  }
+  .tier--good .tier__pct { color: #a8c98c; }
+  .tier--mid  .tier__pct { color: var(--gold-soft); }
+  .tier--none .tier__pct { color: #e8a090; }
+  .tier__label {
+    font-size: .68rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .tier__time {
+    font-size: .78rem;
+    color: rgba(240, 236, 224, .65);
+    line-height: 1.4;
+  }
+
+  /* =========================================================
+     CTA DE CONTATO (fim do documento)
+  ========================================================= */
+  .doc-cta {
+    padding: clamp(2.5rem, 5vw, 4rem);
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(212, 160, 83, .12), transparent 60%),
+      var(--forest);
+    border: 1px solid rgba(212, 160, 83, .2);
+    border-radius: 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .doc-cta h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 300;
+    margin-bottom: 1rem;
+    letter-spacing: -.02em;
+  }
+  .doc-cta h2 em { font-style: italic; color: var(--gold); }
+  .doc-cta p {
+    color: var(--muted);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.05rem;
+    max-width: 42ch;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .doc-cta__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+    padding: .95rem 1.65rem;
+    background: var(--gold);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: .85rem;
+    text-decoration: none;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    transition: background .25s, transform .25s var(--ease), box-shadow .25s;
+    width: fit-content;
+  }
+  .btn:hover {
+    background: var(--gold-soft);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -10px rgba(212, 160, 83, .5);
+  }
+  .btn--ghost {
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid rgba(240, 236, 224, .22);
+  }
+  .btn--ghost:hover {
+    background: rgba(240, 236, 224, .06);
+    border-color: var(--cream);
+    box-shadow: none;
+  }
+  .btn--wa {
+    background: #25D366;
+    color: #fff;
+  }
+  .btn--wa:hover {
+    background: #1ebe5b;
+    color: #fff;
+    box-shadow: 0 14px 30px -10px rgba(37, 211, 102, .5);
+  }
+
+  /* =========================================================
+     FOOTER
+  ========================================================= */
+  .footer {
+    background: var(--forest);
+    padding: 3rem clamp(1.5rem, 6vw, 4rem) 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+  .footer__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .footer__brand {
+    display: flex; align-items: center; gap: .7rem;
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--cream);
+  }
+  .footer__brand img { width: 32px; height: 32px; }
+  .footer__links {
+    display: flex; gap: 1.75rem;
+    flex-wrap: wrap;
+    font-size: .82rem;
+  }
+  .footer__links a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .footer__links a:hover { color: var(--cream); }
+  .footer__bottom {
+    max-width: 1000px;
+    margin: 1.5rem auto 0;
+    text-align: center;
+    font-size: .74rem;
+    color: var(--muted);
+    letter-spacing: .02em;
+  }
+
+  /* =========================================================
+     BOTÃO VOLTAR AO TOPO
+  ========================================================= */
+  .back-top {
+    position: fixed;
+    bottom: 1.35rem; right: 1.35rem;
+    width: 46px; height: 46px;
+    display: grid; place-items: center;
+    background: var(--surface);
+    color: var(--gold);
+    border: 1px solid rgba(212, 160, 83, .3);
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: .95rem;
+    z-index: 90;
+    transform: translateY(120px);
+    opacity: 0;
+    transition: transform .45s var(--ease), opacity .45s, background .2s;
+  }
+  .back-top.is-visible { transform: translateY(0); opacity: 1; }
+  .back-top:hover {
+    background: var(--gold);
+    color: var(--ink);
+    transform: translateY(-2px);
+  }
+
+  /* =========================================================
+     REVEAL
+  ========================================================= */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .9s var(--ease), transform .9s var(--ease);
+  }
+  .reveal.is-visible { opacity: 1; transform: none; }
+
+  /* =========================================================
+     RESPONSIVO
+  ========================================================= */
+  @media (max-width: 900px) {
+    .doc__icon { display: none; }
+  }
+  @media (max-width: 768px) {
+    .nav__links a:not(.nav__cta):not(.nav__back) { display: none; }
+    .nav__toggle { display: block; }
+    .nav__links { gap: .75rem; }
+    .nav__back { font-size: .72rem; }
+    .hero { padding: 7rem 1.5rem 3rem; }
+    .hero__title { font-size: clamp(2rem, 10vw, 3rem); }
+    .doc { border-radius: 20px; padding: 1.75rem; }
+    .doc__header { gap: 1rem; margin-bottom: 2rem; padding-bottom: 1.5rem; }
+    .tiers { padding: 1rem; }
+    .footer__inner { flex-direction: column; align-items: flex-start; }
+    .back-top { bottom: 1rem; right: 1rem; width: 42px; height: 42px; }
+  }
+  @media (max-width: 480px) {
+    .hero__updated { font-size: .65rem; padding: .45rem .85rem; }
+    .index__card { padding: 1.25rem; gap: 1rem; }
+    .index__num { font-size: 1.5rem; }
+    .block h3 { font-size: .68rem; }
+    .block p { font-size: .92rem; }
+  }
+
+  /* =========================================================
+     REDUCED MOTION
+  ========================================================= */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: .01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .01ms !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+  }
+
+  /* =========================================================
+     IMPRESSÃO — documento legível em papel
+  ========================================================= */
+  @media print {
+    body { background: #fff; color: #111; }
+    body::after { display: none; }
+    .progress, .nav, .back-top, .hero::before, .index, .doc-cta__actions { display: none; }
+    .hero { padding: 2rem 0 1rem; }
+    .hero__title, .hero__title em { color: #111; }
+    .hero__sub, .hero__updated, .doc__kicker, .doc__num,
+    .block h3, .block p, .doc-cta h2, .doc-cta p { color: #333; }
+    .doc, .doc-cta { border: 1px solid #ddd; background: #fff; break-inside: avoid; }
+    .doc__num { -webkit-text-stroke: 1px #333; }
+    .tier--good, .tier--mid, .tier--none { border: 1px solid #ccc; background: #fafafa; }
+    .tier--good .tier__pct, .tier--mid .tier__pct, .tier--none .tier__pct { color: #111; }
+    .footer { background: #f5f5f5; border-top: 1px solid #ddd; color: #555; }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+
+<!-- =========================================================
+     NAV
+========================================================= -->
+<header class="nav" id="nav">
+  <a class="nav__brand" href="./index.html">
+    <img src="assets/img/logo_bg.png" alt="Sustaina Trip" />
+    <span>Sustaina Trip</span>
+  </a>
+
+  <nav class="nav__links">
+    <a href="#privacidade">Privacidade</a>
+    <a href="#cancelamento">Cancelamento</a>
+    <a href="#termos">Termos</a>
+    <a href="./index.html" class="nav__back">
+      <i class="fa-solid fa-arrow-left" style="font-size:.75em;"></i>
+      Início
+    </a>
+    <a href="https://wa.me/5548988742011?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20os%20termos."
+       target="_blank" rel="noopener" class="nav__cta">
+      <i class="fab fa-whatsapp"></i>
+      Dúvidas
+    </a>
+  </nav>
+
+  <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+</header>
+
+<main>
+
+  <!-- =========================================================
+       HERO
+  ========================================================= -->
+  <section class="hero">
+    <div class="hero__inner">
+      <p class="hero__kicker">Documento legal</p>
+      <h1 class="hero__title">
+        Termos &<br>
+        <em>Políticas.</em>
+      </h1>
+      <p class="hero__sub">
+        Transparência, segurança e respeito em cada passo da jornada.
+      </p>
+      <p class="hero__updated">
+        <i class="fa-regular fa-clock"></i>
+        Última atualização: Novembro de 2025
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ÍNDICE
+  ========================================================= -->
+  <section class="index">
+    <div class="index__inner">
+      <p class="index__label">Neste documento</p>
+      <div class="index__grid">
+
+        <a href="#privacidade" class="index__card reveal">
+          <span class="index__num">01</span>
+          <div class="index__info">
+            <span class="index__title">Privacidade</span>
+            <span class="index__desc">Como tratamos seus dados</span>
+          </div>
+        </a>
+
+        <a href="#cancelamento" class="index__card reveal" style="transition-delay:.08s;">
+          <span class="index__num">02</span>
+          <div class="index__info">
+            <span class="index__title">Cancelamento</span>
+            <span class="index__desc">Prazos e reembolsos</span>
+          </div>
+        </a>
+
+        <a href="#termos" class="index__card reveal" style="transition-delay:.16s;">
+          <span class="index__num">03</span>
+          <div class="index__info">
+            <span class="index__title">Termos gerais</span>
+            <span class="index__desc">Condições dos serviços</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CONTEÚDO
+  ========================================================= -->
+  <section class="doc-content">
+    <div class="doc-content__inner">
+
+      <!-- ========== 01 · PRIVACIDADE ========== -->
+      <article class="doc reveal" id="privacidade">
+        <header class="doc__header">
+          <div class="doc__header-text">
+            <span class="doc__num">01</span>
+            <p class="doc__kicker">Proteção de dados</p>
+            <h2 class="doc__title">Política de Privacidade</h2>
+          </div>
+          <span class="doc__icon" aria-hidden="true">
+            <i class="fa-solid fa-lock"></i>
+          </span>
+        </header>
+
+        <div class="doc__body">
+
+          <div class="block">
+            <h3>Coleta de dados</h3>
+            <p>
+              Coletamos apenas as informações necessárias para a prestação
+              dos nossos serviços, incluindo <strong>nome, e-mail, telefone
+              e preferências de viagem</strong>.
+            </p>
+          </div>
+
+          <div class="block">
+            <h3>Uso dos dados</h3>
+            <p>
+              Utilizamos seus dados exclusivamente para confirmação de reservas,
+              comunicação sobre serviços contratados e envio de ofertas especiais.
+              <strong>Não compartilhamos seus dados com terceiros</strong> sem o seu
+              consentimento expresso.
+            </p>
+          </div>
+
+          <div class="block">
+            <h3>Proteção das informações</h3>
+            <p>
+              Seus dados estão protegidos por medidas de segurança adequadas
+              para evitar acessos não autorizados, perdas ou vazamentos.
+            </p>
+          </div>
+
+          <div class="block">
+            <h3>Direitos do cliente</h3>
+            <p>
+              Você pode solicitar a exclusão ou alteração dos seus dados a
+              qualquer momento, entrando em contato conosco pelos nossos
+              canais oficiais.
+            </p>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- ========== 02 · CANCELAMENTO ========== -->
+      <article class="doc reveal" id="cancelamento">
+        <header class="doc__header">
+          <div class="doc__header-text">
+            <span class="doc__num">02</span>
+            <p class="doc__kicker">Prazos & reembolsos</p>
+            <h2 class="doc__title">Política de Cancelamento</h2>
+          </div>
+          <span class="doc__icon" aria-hidden="true">
+            <i class="fa-solid fa-calendar-check"></i>
+          </span>
+        </header>
+
+        <div class="doc__body">
+
+          <!-- Resumo visual dos tiers -->
+          <div class="tiers" role="img" aria-label="Resumo das regras de reembolso por prazo de cancelamento">
+            <div class="tier tier--good">
+              <span class="tier__pct">100%</span>
+              <span class="tier__label">Reembolso</span>
+              <span class="tier__time">Mais de 72h de antecedência</span>
+            </div>
+            <div class="tier tier--mid">
+              <span class="tier__pct">50%</span>
+              <span class="tier__label">Reembolso</span>
+              <span class="tier__time">Entre 72h e 24h antes</span>
+            </div>
+            <div class="tier tier--none">
+              <span class="tier__pct">0%</span>
+              <span class="tier__label">Sem reembolso</span>
+              <span class="tier__time">Menos de 24h ou no-show</span>
+            </div>
+          </div>
+
+          <div class="block">
+            <h3>Cancelamentos com mais de 72 horas de antecedência</h3>
+            <p>
+              <strong>Reembolso integral</strong> do valor pago, sem
+              retenção de taxas administrativas.
+            </p>
+          </div>
+
+          <div class="block">
+            <h3>Cancelamentos entre 72 e 24 horas antes da atividade</h3>
+            <p>
+              <strong>Reembolso de 50%</strong> do valor pago, referente aos
+              custos já incorridos na organização do passeio.
+            </p>
+          </div>
+
+          <div class="block">
+            <h3>Cancelamentos com menos de 24 horas ou no-show</h3>
+            <p>
+              <strong>Não há reembolso</strong> em casos de cancelamento
+              tardio ou não comparecimento na data e horário combinados.
+            </p>
+          </div>
+
+          <div class="block">
+            <h3>Alterações na reserva</h3>
+            <p>
+              Alterações de data ou de participantes estão sujeitas à
+              disponibilidade e podem gerar diferença de tarifa. Entre em
+              contato com antecedência para avaliarmos juntos.
+            </p>
+          </div>
+
+          <div class="block">
+            <h3>Casos de força maior</h3>
+            <p>
+              Se a atividade for cancelada por condições climáticas severas
+              ou por fatores alheios ao nosso controle, oferecemos
+              <strong>reagendamento ou crédito para uso futuro</strong> —
+              nunca deixamos você sem uma alternativa.
+            </p>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- ========== 03 · TERMOS GERAIS ========== -->
+      <article class="doc reveal" id="termos">
+        <header class="doc__header">
+          <div class="doc__header-text">
+            <span class="doc__num">03</span>
+            <p class="doc__kicker">Condições</p>
+            <h2 class="doc__title">Termos e Condições Gerais</h2>
+          </div>
+          <span class="doc__icon" aria-hidden="true">
+            <i class="fa-solid fa-scale-balanced"></i>
+          </span>
+        </header>
+
+        <div class="doc__body">
+
+          <div class="block">
+            <h3>Atuação como intermediária</h3>
+            <p>
+              A Sustaina Trip atua como <strong>intermediária entre clientes
+              e fornecedores</strong> de serviços turísticos. Por isso, não nos
+              responsabilizamos por problemas decorrentes de terceiros, como
+              companhias aéreas, transportadoras ou outros operadores.
+            </p>
+          </div>
+
+          <div class="block">
+            <h3>Responsabilidade das informações</h3>
+            <p>
+              Os clientes são responsáveis por fornecer informações corretas
+              para suas reservas — incluindo nomes, documentos e datas de
+              embarque. Erros nessas informações podem resultar em custos
+              adicionais.
+            </p>
+          </div>
+
+          <div class="block">
+            <h3>Respeito à natureza e às comunidades</h3>
+            <p>
+              O respeito à natureza e às comunidades locais é fundamental para
+              nós. Atitudes que prejudiquem o meio ambiente ou os moradores
+              locais podem resultar na exclusão do passeio
+              <strong>sem reembolso</strong>.
+            </p>
+          </div>
+
+          <div class="block">
+            <h3>Aceitação dos termos</h3>
+            <p>
+              A compra de qualquer serviço da Sustaina Trip implica na
+              <strong>aceitação integral destes termos e políticas</strong>.
+              Recomendamos a leitura atenta antes de fechar sua reserva.
+            </p>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- ========== CONTATO ========== -->
+      <div class="doc-cta reveal">
+        <h2>Ficou com <em>dúvida?</em></h2>
+        <p>
+          Estamos à disposição para esclarecer o que for necessário —
+          antes, durante e depois da sua viagem.
+        </p>
+        <div class="doc-cta__actions">
+          <a href="https://wa.me/5548988742011?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20os%20termos%20e%20pol%C3%ADticas."
+             target="_blank" rel="noopener" class="btn btn--wa">
+            <i class="fab fa-whatsapp"></i>
+            Falar no WhatsApp
+          </a>
+          <a href="mailto:info@sustainatrip.com.br" class="btn btn--ghost">
+            <i class="fa-regular fa-envelope" style="font-size:.85em;"></i>
+            Enviar e-mail
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="footer">
+  <div class="footer__inner">
+    <a class="footer__brand" href="./index.html">
+      <img src="assets/img/logo_bg.png" alt="Sustaina Trip" />
+      <span>Sustaina Trip</span>
+    </a>
+    <div class="footer__links">
+      <a href="./index.html">Início</a>
+      <a href="./index.html#vivencias">Vivências</a>
+      <a href="./index.html#transfer">Transfer</a>
+      <a href="https://blog.sustainatrip.com.br/" target="_blank" rel="noopener">Blog</a>
+      <a href="https://wa.me/5548988742011" target="_blank" rel="noopener">Contato</a>
+    </div>
+  </div>
+  <p class="footer__bottom">
+    © 2026 Sustaina Trip Turismo — Todos os direitos reservados.
+  </p>
+</footer>
+
+<!-- Botão voltar ao topo -->
+<a href="#" class="back-top" id="backTop" aria-label="Voltar ao topo">
+  <i class="fa-solid fa-arrow-up"></i>
+</a>
+
+<script>
+(function () {
+  'use strict';
+
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const progressBar = document.getElementById('progressBar');
+  const nav         = document.getElementById('nav');
+  const navToggle   = document.getElementById('navToggle');
+  const backTop     = document.getElementById('backTop');
+
+  let ticking = false;
+
+  function update() {
+    const y   = window.scrollY;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+
+    progressBar.style.width = ((max > 0 ? y / max : 0) * 100) + '%';
+    nav.classList.toggle('is-scrolled', y > 40);
+    backTop.classList.toggle('is-visible', y > window.innerHeight * 0.6);
+
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }, { passive: true });
+
+  window.addEventListener('resize', update);
+  update();
+
+  /* ---------- Reveal ---------- */
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    }
+  }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* ---------- Menu mobile ---------- */
+  if (navToggle) {
+    navToggle.addEventListener('click', () => {
+      const links = document.querySelector('.nav__links');
+      if (!links) return;
+      const isOpen = links.style.display === 'flex';
+      if (isOpen) {
+        links.style.cssText = '';
+      } else {
+        links.style.cssText = 'display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(3,6,14,.98);padding:1.5rem 2rem;border-bottom:1px solid rgba(240,236,224,.08);gap:1.25rem;';
+      }
+    });
+  }
+
+  document.querySelectorAll('.nav__links a').forEach(a => {
+    a.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        const links = document.querySelector('.nav__links');
+        if (links) links.style.cssText = '';
+      }
+    });
+  });
+
+  /* ---------- Back to top suave ---------- */
+  backTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
+})();
+</script>
+
+</body>
+</html>

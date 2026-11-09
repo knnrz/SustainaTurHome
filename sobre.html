@@ -4,368 +4,1285 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Sobre • SustainaTrip Turismo</title>
-
+  <title>Sobre • Sustaina Trip Turismo</title>
   <meta
     name="description"
-    content="Conheça a essência da SustainaTrip Turismo. Experiências conscientes, turismo regenerativo e conexões autênticas em Florianópolis."
+    content="A Sustaina Trip nasceu de um incômodo. Conheça Kenner, a história por trás da marca e o jeito de viajar que a gente acredita."
   />
+  <meta name="theme-color" content="#03060e" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.ico/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.ico/apple-icon-180x180.png" />
+  <link rel="manifest" href="assets/favicon.ico/manifest.json" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..700;1,9..144,200..700&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet"
   />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  />
 
-  <script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* =========================================================
+     BASE
+  ========================================================= */
+  :root {
+    --ink: #03060e;
+    --ink-2: #0a0f0c;
+    --forest: #0f1813;
+    --surface: #141c17;
+    --line: rgba(240, 236, 224, .08);
+    --cream: #f0ece0;
+    --muted: #7a7d78;
+    --sage: #7a9d5f;
+    --gold: #d4a053;
+    --gold-soft: #e8c896;
 
-  <style>
-    body {
-      font-family: "Inter", sans-serif;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', system-ui, sans-serif;
+    --ease: cubic-bezier(.22, .61, .36, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  * { margin: 0; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    background: var(--ink);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--gold); color: var(--ink); }
+
+  h1, h2, h3 { font-family: var(--serif); font-weight: 300; letter-spacing: -.02em; line-height: 1.08; }
+
+  a { color: inherit; }
+
+  img { display: block; max-width: 100%; }
+
+  section[id] { scroll-margin-top: 6rem; }
+
+  /* Grão cinematográfico */
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    opacity: .035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  /* =========================================================
+     PROGRESSO
+  ========================================================= */
+  .progress {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 2px; z-index: 200;
+    background: rgba(255, 255, 255, .04);
+  }
+  .progress__bar {
+    height: 100%; width: 0;
+    background: linear-gradient(90deg, var(--sage), var(--gold));
+    transition: width .1s linear;
+  }
+
+  /* =========================================================
+     NAV
+  ========================================================= */
+  .nav {
+    position: fixed; top: 2px; left: 0; right: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.15rem clamp(1.25rem, 4vw, 2.75rem);
+    z-index: 100;
+    transition: background .35s, backdrop-filter .35s, border-color .35s;
+    border-bottom: 1px solid transparent;
+  }
+  .nav.is-scrolled {
+    background: rgba(3, 6, 14, .82);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border-bottom-color: var(--line);
+  }
+  .nav__brand {
+    display: flex; align-items: center; gap: .6rem;
+    text-decoration: none;
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+  }
+  .nav__brand img {
+    width: 32px; height: 32px;
+    filter: drop-shadow(0 2px 6px rgba(212, 160, 83, .25));
+  }
+  .nav__links {
+    display: flex; align-items: center; gap: 1.85rem;
+    font-size: .82rem;
+    font-weight: 500;
+  }
+  .nav__links a {
+    text-decoration: none;
+    color: var(--muted);
+    transition: color .2s;
+    position: relative;
+  }
+  .nav__links a:not(.nav__cta):hover { color: var(--cream); }
+  .nav__links a:not(.nav__cta)::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -5px;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .3s var(--ease);
+  }
+  .nav__links a:not(.nav__cta):hover::after { transform: scaleX(1); }
+  .nav__links a.is-current { color: var(--cream); }
+  .nav__links a.is-current::after { transform: scaleX(1); }
+
+  .nav__cta {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .6rem 1.1rem;
+    background: var(--gold);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: .78rem;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: background .2s, transform .2s;
+  }
+  .nav__cta:hover { background: var(--gold-soft); transform: translateY(-1px); }
+
+  .nav__toggle {
+    display: none;
+    background: none; border: none; color: var(--cream);
+    font-size: 1.35rem; cursor: pointer;
+    padding: .5rem;
+  }
+
+  /* =========================================================
+     BOTÕES
+  ========================================================= */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+    padding: .95rem 1.65rem;
+    background: var(--gold);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: .85rem;
+    text-decoration: none;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    transition: background .25s, transform .25s var(--ease), box-shadow .25s;
+    width: fit-content;
+  }
+  .btn:hover {
+    background: var(--gold-soft);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px -10px rgba(212, 160, 83, .55);
+  }
+  .btn--ghost {
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid rgba(240, 236, 224, .22);
+  }
+  .btn--ghost:hover {
+    background: rgba(240, 236, 224, .06);
+    border-color: var(--cream);
+    box-shadow: none;
+  }
+  .btn--wa {
+    background: #25D366;
+    color: #fff;
+  }
+  .btn--wa:hover {
+    background: #1ebe5b;
+    color: #fff;
+    box-shadow: 0 14px 32px -10px rgba(37, 211, 102, .5);
+  }
+  .btn--large { padding: 1.1rem 2rem; font-size: .95rem; }
+
+  /* =========================================================
+     HERO
+  ========================================================= */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 8rem clamp(1.5rem, 6vw, 4rem) clamp(3rem, 8vh, 5.5rem);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .hero__bg {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    transform: scale(1.08);
+    animation: heroPull 2.6s cubic-bezier(.19, 1, .22, 1) .2s forwards;
+    filter: brightness(.55) saturate(1.05);
+  }
+  @keyframes heroPull { to { transform: scale(1); } }
+
+  .hero__bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to top, var(--ink) 0%, rgba(3, 6, 14, .55) 35%, rgba(3, 6, 14, .15) 100%),
+      linear-gradient(to right, rgba(3, 6, 14, .55) 0%, transparent 55%);
+  }
+
+  .hero__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero__kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: .75rem;
+    font-size: .68rem;
+    letter-spacing: .4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2.25rem;
+    opacity: 0;
+    animation: fadeUp 1.2s var(--ease) .5s forwards;
+  }
+  .hero__kicker::before {
+    content: '';
+    width: 36px; height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: lineGrow 1.6s var(--ease) .7s forwards;
+  }
+  @keyframes lineGrow { to { transform: scaleX(1); } }
+
+  .hero__title {
+    font-size: clamp(2.75rem, 10vw, 8rem);
+    font-weight: 200;
+    max-width: 12ch;
+    letter-spacing: -.045em;
+    line-height: .94;
+    opacity: 0;
+    animation: fadeUp 1.4s var(--ease) .8s forwards;
+  }
+  .hero__title em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 300;
+  }
+
+  .hero__sub {
+    font-family: var(--serif);
+    font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+    color: rgba(240, 236, 224, .78);
+    margin-top: 2rem;
+    max-width: 42ch;
+    font-weight: 300;
+    line-height: 1.5;
+    font-style: italic;
+    opacity: 0;
+    animation: fadeUp 1.4s var(--ease) 1.05s forwards;
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    opacity: 0;
+    animation: fadeUp 1.4s var(--ease) 1.3s forwards;
+  }
+
+  .hero__scroll {
+    position: absolute;
+    bottom: 2rem;
+    right: clamp(1.5rem, 6vw, 4rem);
+    display: flex;
+    align-items: center;
+    gap: .85rem;
+    font-size: .65rem;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeUp 1.4s var(--ease) 1.7s forwards;
+  }
+  .hero__scroll svg { animation: bob 2.2s ease-in-out infinite; }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(7px); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* =========================================================
+     MANIFESTO (a carta de Kenner)
+  ========================================================= */
+  .manifesto {
+    padding: clamp(6rem, 14vh, 11rem) clamp(1.5rem, 6vw, 4rem);
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .manifesto::before {
+    content: '';
+    position: absolute;
+    top: -15%; left: 50%;
+    transform: translateX(-50%);
+    width: 900px; height: 900px;
+    background: radial-gradient(circle, rgba(212, 160, 83, .06), transparent 60%);
+    pointer-events: none;
+  }
+
+  .manifesto__inner {
+    max-width: 780px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .manifesto__portrait {
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 2.5rem;
+    border: 2px solid rgba(212, 160, 83, .35);
+    background: linear-gradient(135deg, var(--sage), var(--gold));
+    display: grid;
+    place-items: center;
+    position: relative;
+    box-shadow: 0 12px 40px -10px rgba(212, 160, 83, .4);
+  }
+  .manifesto__portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .manifesto__portrait--fallback::after {
+    content: 'K';
+    font-family: var(--serif);
+    font-size: 3.5rem;
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1;
+    margin-top: -.3rem;
+  }
+
+  .manifesto__label {
+    text-align: center;
+    font-size: .68rem;
+    letter-spacing: .4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2.5rem;
+  }
+
+  .manifesto__text {
+    font-family: var(--serif);
+    font-size: clamp(1.25rem, 2.6vw, 1.9rem);
+    font-weight: 300;
+    line-height: 1.45;
+    letter-spacing: -.015em;
+    color: var(--cream);
+    text-align: left;
+  }
+  .manifesto__text p { margin-bottom: 1.35em; }
+  .manifesto__text p:last-child { margin-bottom: 0; }
+  .manifesto__text em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 300;
+  }
+  .manifesto__text strong {
+    font-weight: 500;
+    color: var(--cream);
+  }
+
+  .manifesto__signature {
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-family: var(--sans);
+    font-size: .8rem;
+    color: var(--muted);
+  }
+  .manifesto__signature-name {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--gold);
+    letter-spacing: -.01em;
+    line-height: 1;
+  }
+
+  /* =========================================================
+     PILARES (as 4 essências)
+  ========================================================= */
+  .pillars {
+    padding: clamp(5rem, 12vh, 9rem) clamp(1.5rem, 6vw, 4rem);
+    background: var(--forest);
+    border-top: 1px solid var(--line);
+  }
+  .pillars__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-head {
+    max-width: 700px;
+    margin-bottom: clamp(3rem, 6vh, 5rem);
+  }
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: .75rem;
+    font-size: .68rem;
+    letter-spacing: .4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .kicker::before {
+    content: '';
+    width: 24px; height: 1px;
+    background: currentColor;
+  }
+  .title {
+    font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -.025em;
+  }
+  .title em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 300;
+  }
+
+  .pillars__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .pillar {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(212, 160, 83, .25);
+    position: relative;
+  }
+  .pillar::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 0;
+    width: 48px; height: 1px;
+    background: var(--gold);
+  }
+  .pillar__num {
+    font-family: var(--serif);
+    font-size: .85rem;
+    letter-spacing: .3em;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+  }
+  .pillar__title {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+    margin-bottom: 1rem;
+    line-height: 1.15;
+    font-weight: 400;
+    color: var(--cream);
+  }
+  .pillar__desc {
+    color: rgba(240, 236, 224, .68);
+    font-size: .98rem;
+    line-height: 1.7;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  /* =========================================================
+     DIFERENÇA (o que fazemos de diferente)
+  ========================================================= */
+  .diff {
+    padding: clamp(5rem, 12vh, 9rem) clamp(1.5rem, 6vw, 4rem);
+    background: var(--ink);
+  }
+  .diff__inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .diff__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .diff__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    align-items: start;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .diff__item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .diff__num {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 200;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(212, 160, 83, .55);
+    line-height: 1;
+    letter-spacing: -.04em;
+    flex-shrink: 0;
+  }
+  .diff__content h3 {
+    font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+    margin-bottom: .6rem;
+    line-height: 1.2;
+    font-weight: 400;
+    color: var(--cream);
+  }
+  .diff__content p {
+    color: var(--muted);
+    font-size: .98rem;
+    line-height: 1.7;
+    max-width: 52ch;
+  }
+
+  /* =========================================================
+     CTA FINAL — assinatura
+  ========================================================= */
+  .closing {
+    position: relative;
+    padding: clamp(7rem, 16vh, 12rem) clamp(1.5rem, 6vw, 4rem);
+    overflow: hidden;
+    isolation: isolate;
+    text-align: center;
+  }
+  .closing__bg {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    filter: brightness(.42) saturate(1.1);
+  }
+  .closing__bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to bottom, var(--ink) 0%, rgba(3, 6, 14, .5) 30%, rgba(3, 6, 14, .55) 70%, var(--ink) 100%);
+  }
+
+  .closing__inner {
+    max-width: 780px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .closing__kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: .75rem;
+    font-size: .68rem;
+    letter-spacing: .4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+  }
+  .closing__kicker::before,
+  .closing__kicker::after {
+    content: '';
+    width: 24px; height: 1px;
+    background: var(--gold);
+    opacity: .6;
+  }
+
+  .closing__title {
+    font-size: clamp(2.4rem, 7vw, 5rem);
+    font-weight: 200;
+    letter-spacing: -.04em;
+    line-height: .98;
+    margin-bottom: 1.75rem;
+  }
+  .closing__title em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 300;
+  }
+  .closing__lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    font-weight: 300;
+    color: rgba(240, 236, 224, .78);
+    max-width: 48ch;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+  }
+
+  .closing__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+  }
+
+  .closing__signature {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .75rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--line);
+    min-width: 220px;
+  }
+  .closing__signature-label {
+    font-size: .65rem;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .closing__signature-name {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(2.25rem, 5vw, 3rem);
+    font-weight: 300;
+    color: var(--gold);
+    letter-spacing: -.03em;
+    line-height: 1;
+    transform: rotate(-2deg);
+  }
+
+  /* =========================================================
+     FOOTER
+  ========================================================= */
+  .footer {
+    background: var(--forest);
+    padding: 3.5rem clamp(1.5rem, 6vw, 4rem) 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+  .footer__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.4fr;
+    gap: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .footer__brand {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: var(--cream);
+    width: fit-content;
+  }
+  .footer__brand img { width: 36px; height: 36px; }
+  .footer__tagline {
+    color: var(--muted);
+    font-size: .88rem;
+    max-width: 30ch;
+    line-height: 1.6;
+  }
+  .footer__title {
+    font-size: .68rem;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.15rem;
+    font-weight: 600;
+  }
+  .footer ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .65rem;
+  }
+  .footer ul a {
+    color: var(--muted);
+    font-size: .85rem;
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .footer ul a:hover { color: var(--cream); }
+
+  .footer__social {
+    display: flex;
+    gap: .65rem;
+    margin-top: 1.15rem;
+  }
+  .footer__social a {
+    width: 38px; height: 38px;
+    display: grid; place-items: center;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    color: var(--cream);
+    text-decoration: none;
+    transition: background .25s, color .25s;
+  }
+  .footer__social a:hover {
+    background: var(--gold);
+    color: var(--ink);
+    border-color: var(--gold);
+  }
+  .footer__contact p {
+    color: var(--muted);
+    font-size: .85rem;
+    margin-bottom: .45rem;
+  }
+  .footer__contact a {
+    color: var(--cream);
+    text-decoration: none;
+  }
+  .footer__contact a:hover { color: var(--gold); }
+
+  .footer__bottom {
+    max-width: 1200px;
+    margin: 1.5rem auto 0;
+    text-align: center;
+    font-size: .74rem;
+    color: var(--muted);
+    letter-spacing: .02em;
+  }
+
+  /* =========================================================
+     BOTÃO VOLTAR AO TOPO
+  ========================================================= */
+  .back-top {
+    position: fixed;
+    bottom: 1.35rem; right: 1.35rem;
+    width: 46px; height: 46px;
+    display: grid; place-items: center;
+    background: var(--surface);
+    color: var(--gold);
+    border: 1px solid rgba(212, 160, 83, .3);
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: .95rem;
+    z-index: 90;
+    transform: translateY(120px);
+    opacity: 0;
+    transition: transform .45s var(--ease), opacity .45s, background .2s;
+  }
+  .back-top.is-visible { transform: translateY(0); opacity: 1; }
+  .back-top:hover {
+    background: var(--gold);
+    color: var(--ink);
+    transform: translateY(-2px);
+  }
+
+  /* =========================================================
+     REVEAL
+  ========================================================= */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .95s var(--ease), transform .95s var(--ease);
+  }
+  .reveal.is-visible { opacity: 1; transform: none; }
+  .reveal[data-delay="1"] { transition-delay: .1s; }
+  .reveal[data-delay="2"] { transition-delay: .2s; }
+  .reveal[data-delay="3"] { transition-delay: .3s; }
+  .reveal[data-delay="4"] { transition-delay: .4s; }
+
+  /* =========================================================
+     RESPONSIVO
+  ========================================================= */
+  @media (max-width: 900px) {
+    .footer__inner {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
     }
-
-    .title-font {
-      font-family: "Merriweather", serif;
+    .footer__brand-col { grid-column: 1 / -1; }
+  }
+  @media (max-width: 768px) {
+    .nav__links { display: none; }
+    .nav__toggle { display: block; }
+    .hero {
+      padding: 6rem 1.5rem 3rem;
+      min-height: 90vh;
     }
+    .hero__scroll { display: none; }
+    .manifesto__text { text-align: left; }
+    .manifesto__signature { flex-direction: column; align-items: flex-start; }
+    .diff__item { grid-template-columns: 1fr; gap: 1rem; }
+    .diff__num { font-size: 2.5rem; }
+    .footer__inner { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .manifesto__portrait { width: 96px; height: 96px; }
+    .closing__actions { flex-direction: column; align-items: stretch; }
+    .closing__actions .btn { width: 100%; }
+  }
 
-    html {
-      scroll-behavior: smooth;
+  /* =========================================================
+     REDUCED MOTION
+  ========================================================= */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: .01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .01ms !important;
     }
-  </style>
+    .reveal { opacity: 1; transform: none; }
+    .hero__bg { animation: none; transform: scale(1); }
+    .hero__kicker, .hero__title, .hero__sub, .hero__actions, .hero__scroll {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
 </head>
 
-<body class="bg-white text-zinc-900 overflow-x-hidden">
+<body>
 
-  <!-- HEADER -->
-  <header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-zinc-100">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+<div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
 
-      <img src="assets/img/logo_light.png" alt="SustainaTrip Logo" style="width:40px; height:40px;">
+<!-- =========================================================
+     NAV
+========================================================= -->
+<header class="nav" id="nav">
+  <a class="nav__brand" href="./index.html">
+    <img src="assets/img/logo_bg.png" alt="Sustaina Trip" />
+    <span>Sustaina Trip</span>
+  </a>
 
-      <a
-        href="index.html"
-        class="text-2xl font-bold tracking-tight text-emerald-700"
-      >
-        SustainaTrip
-      </a>
+  <nav class="nav__links">
+    <a href="./index.html">Início</a>
+    <a href="./index.html#vivencias">Vivências</a>
+    <a href="./index.html#transfer">Transfer</a>
+    <a href="https://blog.sustainatrip.com.br/" target="_blank" rel="noopener noreferrer">Blog</a>
+    <a href="./sobre.html" class="is-current">Sobre</a>
+    <a href="https://wa.me/5548988742011?text=Ol%C3%A1!%20Quero%20conhecer%20a%20Ilha%20com%20a%20Sustaina."
+       target="_blank" rel="noopener" class="nav__cta">
+      <i class="fab fa-whatsapp"></i>
+      Fale com a gente
+    </a>
+  </nav>
 
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-700">
+  <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+</header>
 
-        <a href="index.html" class="hover:text-emerald-700 transition">
-          Início
-        </a>
+<main>
 
-        <a href="blog.html" class="hover:text-emerald-700 transition">
-          Blog
-        </a>
-
-        <a
-          href="https://www.sustainatrip.tur.br/"
-          class="hover:text-emerald-700 transition"
-        >
-          Experiências
-        </a>
-
-      </nav>
-
-    </div>
-  </header>
-
-  <!-- SPACING -->
-  <div class="h-20"></div>
-
-  <!-- HERO -->
-  <section class="relative min-h-[90vh] flex items-center overflow-hidden">
-
-    <img
-      src="./img/about-hero.jpg"
-      alt="Natureza"
-      class="absolute inset-0 w-full h-full object-cover"
-    />
-
-    <div class="absolute inset-0 bg-black/55"></div>
-
-    <div class="relative z-10 max-w-5xl mx-auto px-6 py-24 text-white">
-
-      <span
-        class="inline-flex mb-6 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm backdrop-blur-md"
-      >
-        Turismo consciente • Experiências autênticas
-      </span>
-
-      <h1
-        class="title-font text-5xl md:text-7xl leading-tight"
-      >
-        Viajar pode ser mais do que visitar lugares.
+  <!-- =========================================================
+       HERO
+  ========================================================= -->
+  <section class="hero">
+    <div class="hero__bg" style="background-image: url('./img/about-hero.jpg');"></div>
+    <div class="hero__inner">
+      <p class="hero__kicker">Sobre · Sustaina Trip</p>
+      <h1 class="hero__title">
+        Tem uma pessoa<br>
+        por trás <em>disso.</em>
       </h1>
-
-      <p
-        class="mt-8 text-lg md:text-2xl leading-relaxed max-w-3xl text-zinc-200"
-      >
-        A SustainaTrip nasceu da vontade de criar experiências que conectam pessoas,
-        natureza e histórias reais — com simplicidade, presença e propósito.
+      <p class="hero__sub">
+        Um caderno, um mapa e uma pergunta. A Sustaina Trip começou assim — e continua começando todo dia.
       </p>
-
-      <div class="mt-10 flex flex-wrap gap-4">
-
-        <a
-          href="#"
-        >
+      <div class="hero__actions">
+        <a href="#manifesto" class="btn">
+          Ler a história
+          <i class="fa-solid fa-arrow-down" style="font-size:.85em;"></i>
+        </a>
+        <a href="https://wa.me/5548988742011?text=Ol%C3%A1!%20Vim%20pelo%20Sobre%20e%20queria%20conversar."
+           target="_blank" rel="noopener" class="btn btn--ghost">
           Falar no WhatsApp
         </a>
-
-        <a
-          href="#sobre"
-          class="border border-white/20 bg-white/10 backdrop-blur-md px-8 py-4 rounded-2xl font-semibold hover:bg-white/20 transition"
-        >
-          Conhecer nossa essência
-        </a>
-
       </div>
-
     </div>
+    <a href="#manifesto" class="hero__scroll" aria-label="Rolar para ler">
+      <span>Ler a história</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </a>
   </section>
 
-  <!-- SOBRE -->
-  <section id="sobre" class="py-28 px-6">
+  <!-- =========================================================
+       MANIFESTO — a carta de Kenner
+  ========================================================= -->
+  <section class="manifesto" id="manifesto">
+    <div class="manifesto__inner">
 
-    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
-
-      <div>
-
-        <p class="text-sm uppercase tracking-[0.25em] text-emerald-600 mb-4">
-          Sobre a SustainaTrip
-        </p>
-
-        <h2 class="title-font text-4xl md:text-5xl leading-tight">
-          Criamos viagens que deixam memórias — não apenas fotos.
-        </h2>
-
-        <div class="mt-8 space-y-6 text-lg leading-relaxed text-zinc-600">
-
-          <p>
-            Sou Kenner, criador da SustainaTrip Turismo.
-            Trabalho conectando viajantes a experiências mais humanas,
-            conscientes e transformadoras.
-          </p>
-
-          <p>
-            Acredito que viajar pode ser uma forma de desacelerar,
-            respirar fundo, reconectar-se com a natureza
-            e viver encontros que realmente fazem sentido.
-          </p>
-
-          <p>
-            Nosso trabalho nasce da simplicidade:
-            valorizar pessoas locais, respeitar os ritmos da natureza
-            e criar roteiros com alma.
-          </p>
-
-        </div>
-
-      </div>
-
-      <div class="relative">
-
+      <div class="manifesto__portrait reveal">
         <img
-          src="./img/about-section.jpg"
-          alt="Experiências"
-          class="rounded-[40px] shadow-2xl"
+          src="./img/kenner.jpg"
+          alt="Kenner, fundador da Sustaina Trip"
+          onerror="this.style.display='none'; this.parentElement.classList.add('manifesto__portrait--fallback');"
         />
-
-        <div
-          class="absolute -bottom-10 -left-10 bg-white rounded-3xl shadow-xl p-8 max-w-xs border border-zinc-100"
-        >
-
-          <p class="text-4xl mb-3">
-            🌿
-          </p>
-
-          <h3 class="font-bold text-xl">
-            Turismo com presença
-          </h3>
-
-          <p class="mt-3 text-zinc-600 leading-relaxed">
-            Menos correria.
-            Mais conexão, natureza e experiências genuínas.
-          </p>
-
-        </div>
-
       </div>
 
-    </div>
+      <p class="manifesto__label reveal">O começo</p>
 
-  </section>
-
-  <!-- EXPERIÊNCIAS -->
-  <section class="bg-zinc-50 py-28 px-6">
-
-    <div class="max-w-7xl mx-auto">
-
-      <div class="text-center max-w-3xl mx-auto">
-
-        <p class="text-sm uppercase tracking-[0.25em] text-emerald-600 mb-4">
-          Nossa essência
+      <div class="manifesto__text reveal" data-delay="1">
+        <p>
+          Meu nome é <strong>Kenner</strong>.<br>
+          E isso aqui começou com uma pergunta.
         </p>
-
-        <h2 class="title-font text-4xl md:text-5xl leading-tight">
-          Experiências pensadas para sentir, não apenas consumir.
-        </h2>
-
+        <p>
+          <em>Por que a gente viaja?</em>
+        </p>
+        <p>
+          Trabalhei anos com turismo. Vi de perto o que um pacote faz
+          com uma cidade — e o que uma boa conversa faz com uma pessoa.
+          A diferença é enorme.
+        </p>
+        <p>
+          A Sustaina Trip nasceu dessa diferença. Não de um plano de
+          negócios. De um <em>incômodo</em> — de querer fazer diferente,
+          com as ferramentas certas.
+        </p>
+        <p>
+          A gente não inventou nada. Só aprendemos a <em>organizar</em>
+          o que a Ilha sempre soube fazer: receber bem.
+        </p>
       </div>
 
-      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8 mt-20">
+      <div class="manifesto__signature reveal" data-delay="2">
+        <span>Florianópolis · desde 2024</span>
+        <span class="manifesto__signature-name">Kenner</span>
+      </div>
 
-        <div class="bg-white rounded-3xl p-8 shadow-sm border border-zinc-100">
-          <div class="text-4xl mb-5">🌊</div>
+    </div>
+  </section>
 
-          <h3 class="font-bold text-2xl">
-            Natureza
-          </h3>
+  <!-- =========================================================
+       PILARES — as 4 essências
+  ========================================================= -->
+  <section class="pillars">
+    <div class="pillars__inner">
 
-          <p class="mt-4 text-zinc-600 leading-relaxed">
-            Praias, trilhas, ilhas e paisagens que convidam ao silêncio e à contemplação.
+      <div class="section-head reveal">
+        <p class="kicker">No que a gente acredita</p>
+        <h2 class="title">Quatro coisas que a gente<br>não <em>negocia.</em></h2>
+      </div>
+
+      <div class="pillars__grid">
+
+        <div class="pillar reveal" data-delay="1">
+          <div class="pillar__num">01</div>
+          <h3 class="pillar__title">Natureza</h3>
+          <p class="pillar__desc">
+            A gente não usa a natureza como cenário.<br>
+            A gente entra nela.
           </p>
         </div>
 
-        <div class="bg-white rounded-3xl p-8 shadow-sm border border-zinc-100">
-          <div class="text-4xl mb-5">🤝</div>
-
-          <h3 class="font-bold text-2xl">
-            Comunidade
-          </h3>
-
-          <p class="mt-4 text-zinc-600 leading-relaxed">
-            Valorizamos pessoas locais, histórias reais e conexões humanas autênticas.
+        <div class="pillar reveal" data-delay="2">
+          <div class="pillar__num">02</div>
+          <h3 class="pillar__title">Comunidade</h3>
+          <p class="pillar__desc">
+            A gente paga quem te recebe. Direto.<br>
+            Porque a economia do lugar importa.
           </p>
         </div>
 
-        <div class="bg-white rounded-3xl p-8 shadow-sm border border-zinc-100">
-          <div class="text-4xl mb-5">✨</div>
-
-          <h3 class="font-bold text-2xl">
-            Presença
-          </h3>
-
-          <p class="mt-4 text-zinc-600 leading-relaxed">
-            Experiências que desaceleram o olhar e despertam novas formas de viver.
+        <div class="pillar reveal" data-delay="3">
+          <div class="pillar__num">03</div>
+          <h3 class="pillar__title">Presença</h3>
+          <p class="pillar__desc">
+            A gente não corre atrás de fotos.<br>
+            A gente corre atrás de memória.
           </p>
         </div>
 
-        <div class="bg-white rounded-3xl p-8 shadow-sm border border-zinc-100">
-          <div class="text-4xl mb-5">💛</div>
-
-          <h3 class="font-bold text-2xl">
-            Simplicidade
-          </h3>
-
-          <p class="mt-4 text-zinc-600 leading-relaxed">
-            Não buscamos luxo artificial — buscamos experiências com verdade.
+        <div class="pillar reveal" data-delay="4">
+          <div class="pillar__num">04</div>
+          <h3 class="pillar__title">Simplicidade</h3>
+          <p class="pillar__desc">
+            Sem luxo artificial. Sem pose.<br>
+            Só o necessário — feito bem.
           </p>
         </div>
 
       </div>
 
     </div>
-
   </section>
 
-  <!-- CTA -->
-  <section class="relative overflow-hidden py-28 px-6">
+  <!-- =========================================================
+       DIFERENÇA — o que fazemos de diferente
+  ========================================================= -->
+  <section class="diff">
+    <div class="diff__inner">
 
-    <img
-      src="./img/img.jpg"
-      class="absolute inset-0 w-full h-full object-cover"
-    />
+      <div class="section-head reveal">
+        <p class="kicker">O jeito Sustaina</p>
+        <h2 class="title">O que fazemos<br><em>diferente.</em></h2>
+      </div>
 
-    <div class="absolute inset-0 bg-black/60"></div>
+      <ol class="diff__list">
 
-    <div class="relative z-10 max-w-4xl mx-auto text-center text-white">
+        <li class="diff__item reveal" data-delay="1">
+          <span class="diff__num">01</span>
+          <div class="diff__content">
+            <h3>Conhecemos cada pessoa que te recebe.</h3>
+            <p>
+              Pelo nome. Não é catálogo — é relação. A gente senta à mesa
+              com as famílias, os guias e os cozinheiros antes de colocar
+              qualquer vivência no site.
+            </p>
+          </div>
+        </li>
 
-      <h2 class="title-font text-4xl md:text-6xl leading-tight">
-        Talvez a melhor viagem seja aquela que transforma você por dentro.
+        <li class="diff__item reveal" data-delay="2">
+          <span class="diff__num">02</span>
+          <div class="diff__content">
+            <h3>Testamos antes de indicar.</h3>
+            <p>
+              Toda vivência e todo passeio foram vividos por nós primeiro.
+              Se não passou pelo nosso próprio crivo, não entra no seu
+              roteiro. Simples assim.
+            </p>
+          </div>
+        </li>
+
+        <li class="diff__item reveal" data-delay="3">
+          <span class="diff__num">03</span>
+          <div class="diff__content">
+            <h3>Respondemos. E continuamos respondendo.</h3>
+            <p>
+              Um número de WhatsApp. Uma pessoa de verdade. Do primeiro "oi"
+              ao dia do embarque — e também depois, quando você já está
+              em casa e quer voltar.
+            </p>
+          </div>
+        </li>
+
+      </ol>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CLOSING — assinatura
+  ========================================================= -->
+  <section class="closing">
+    <div class="closing__bg" style="background-image: url('./img/img.jpg');"></div>
+    <div class="closing__inner">
+
+      <p class="closing__kicker reveal">Se fizer sentido</p>
+      <h2 class="closing__title reveal" data-delay="1">
+        A gente<br><em>se encontra.</em>
       </h2>
-
-      <p class="mt-8 text-xl leading-relaxed text-zinc-200">
-        Se você procura viagens mais conscientes, humanas e memoráveis,
+      <p class="closing__lede reveal" data-delay="2">
+        Se você procura viagens mais humanas, conscientes e memoráveis,
         será um prazer caminhar essa jornada com você.
       </p>
 
-      <div class="mt-12 flex flex-wrap justify-center gap-4">
-
-        <a
-          href="mailto:contato@sustainatrip.com.br"
-          class="bg-white text-zinc-900 px-8 py-4 rounded-2xl font-semibold hover:scale-105 transition"
-        >
-          Entrar em contato
+      <div class="closing__actions reveal" data-delay="3">
+        <a href="https://wa.me/5548988742011?text=Ol%C3%A1!%20Li%20o%20Sobre%20e%20queria%20conversar."
+           target="_blank" rel="noopener" class="btn btn--wa btn--large">
+          <i class="fab fa-whatsapp"></i>
+          Falar no WhatsApp
         </a>
-
-        <a
-          href="https://blog.sustainatrip.com.br/"
-          class="border border-white/20 bg-white/10 backdrop-blur-md px-8 py-4 rounded-2xl font-semibold hover:bg-white/20 transition"
-        >
-          Ler o blog
+        <a href="mailto:contato@sustainatrip.com.br" class="btn btn--ghost btn--large">
+          <i class="fa-regular fa-envelope" style="font-size:.85em;"></i>
+          Enviar e-mail
         </a>
+      </div>
 
+      <div class="closing__signature reveal" data-delay="4">
+        <span class="closing__signature-label">Com carinho,</span>
+        <span class="closing__signature-name">Kenner</span>
       </div>
 
     </div>
-
   </section>
 
-  <!-- FOOTER -->
-  <footer class="bg-white border-t border-zinc-100">
+</main>
 
-    <div
-      class="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6"
-    >
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="footer">
+  <div class="footer__inner">
 
-      <div>
-        <h3 class="text-xl font-bold">
-          SustainaTrip Turismo
-        </h3>
-
-        <p class="mt-2 text-sm text-zinc-500">
-          Florianópolis • Turismo consciente • Experiências autênticas
-        </p>
-      </div>
-
-      <div class="flex items-center gap-6 text-sm text-zinc-600">
-
-        <a href="#" class="hover:text-emerald-700 transition">
-          Instagram
-        </a>
-
-        <a href="#" class="hover:text-emerald-700 transition">
-          TikTok
-        </a>
-
-        <a href="#" class="hover:text-emerald-700 transition">
-          YouTube
-        </a>
-
-        <a href="#" class="hover:text-emerald-700 transition">
-          WhatsApp
-        </a>
-
-      </div>
-
+    <div class="footer__brand-col">
+      <a class="footer__brand" href="./index.html">
+        <img src="assets/img/logo_bg.png" alt="Sustaina Trip" />
+        <span>Sustaina Trip</span>
+      </a>
+      <p class="footer__tagline">
+        Tem viagens que a gente faz. E tem viagens que fazem a gente.
+        A gente organiza as segundas.
+      </p>
     </div>
 
-    <div class="border-t border-zinc-100 py-4 text-center text-sm text-zinc-500">
-      © <span id="year"></span> SustainaTrip Turismo. Todos os direitos reservados.
+    <div>
+      <h4 class="footer__title">Navegue</h4>
+      <ul>
+        <li><a href="./index.html">Início</a></li>
+        <li><a href="./index.html#vivencias">Vivências</a></li>
+        <li><a href="./index.html#roteiros">Passeios</a></li>
+        <li><a href="./index.html#transfer">Transfer</a></li>
+        <li><a href="./index.html#parceiros">Destinos</a></li>
+      </ul>
     </div>
 
-  </footer>
+    <div>
+      <h4 class="footer__title">Institucional</h4>
+      <ul>
+        <li><a href="./sobre.html">Sobre nós</a></li>
+        <li><a href="https://blog.sustainatrip.com.br/" target="_blank" rel="noopener">Blog</a></li>
+        <li><a href="./termos.html">Termos & Políticas</a></li>
+        <li><a href="https://wa.me/5548988742011" target="_blank" rel="noopener">Contato</a></li>
+      </ul>
+    </div>
 
-  <!-- YEAR -->
-  <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
+    <div class="footer__contact">
+      <h4 class="footer__title">Contato</h4>
+      <p><a href="mailto:contato@sustainatrip.com.br">contato@sustainatrip.com.br</a></p>
+      <p><a href="https://wa.me/5548988742011" target="_blank" rel="noopener">(48) 98874-2011</a></p>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/sustainatrip.tur" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/5548988742011" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+  <p class="footer__bottom">
+    © 2026 Sustaina Trip Turismo — Feito na Ilha de Santa Catarina, com quem vive nela.
+  </p>
+</footer>
+
+<a href="#" class="back-top" id="backTop" aria-label="Voltar ao topo">
+  <i class="fa-solid fa-arrow-up"></i>
+</a>
+
+<script>
+(function () {
+  'use strict';
+
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const progressBar = document.getElementById('progressBar');
+  const nav         = document.getElementById('nav');
+  const navToggle   = document.getElementById('navToggle');
+  const backTop     = document.getElementById('backTop');
+
+  let ticking = false;
+
+  function update() {
+    const y   = window.scrollY;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+
+    progressBar.style.width = ((max > 0 ? y / max : 0) * 100) + '%';
+    nav.classList.toggle('is-scrolled', y > 40);
+    backTop.classList.toggle('is-visible', y > window.innerHeight * 0.6);
+
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }, { passive: true });
+
+  window.addEventListener('resize', update);
+  update();
+
+  /* ---------- Reveal ---------- */
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    }
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* ---------- Menu mobile ---------- */
+  if (navToggle) {
+    navToggle.addEventListener('click', () => {
+      const links = document.querySelector('.nav__links');
+      if (!links) return;
+      const isOpen = links.style.display === 'flex';
+      if (isOpen) {
+        links.style.cssText = '';
+      } else {
+        links.style.cssText = 'display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(3,6,14,.98);padding:1.5rem 2rem;border-bottom:1px solid rgba(240,236,224,.08);gap:1.25rem;';
+      }
+    });
+  }
+
+  document.querySelectorAll('.nav__links a').forEach(a => {
+    a.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        const links = document.querySelector('.nav__links');
+        if (links) links.style.cssText = '';
+      }
+    });
+  });
+
+  /* ---------- Back to top ---------- */
+  backTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
+})();
+</script>
 
 </body>
 </html>
